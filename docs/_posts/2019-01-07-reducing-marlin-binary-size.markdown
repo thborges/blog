@@ -4,7 +4,7 @@ title:  "Reducing Marlin firmware binary size to fit in your 3D printer board me
 date:   2019-01-07 18:44:14 -0200
 categories: marlin
 ---
-How to reduce the Marlin binary size? Here are my special compilation flags that was able to reduce it by almost 6K.
+How to reduce the Marlin binary size? Here are my special compilation flags that were able to reduce it by almost 6K.
 
 Changing them is easy wether you are using Arduino IDE or PlataformIO. 
 
