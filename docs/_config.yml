@@ -16,7 +16,7 @@
 title: 3D, circuits and coding projects 
 email: thborges@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Documentation for some profissional and hobbie projects about 3D printers modifications, 3D designs, algorithms, circuits and more. Thank you for reading. Fell free to contact me.
+  Documentation of some professional and hobby projects about 3D printers modifications, 3D designs, algorithms, circuits and more. Thank you for reading. Fell free to contact me.
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://thborges.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: thborges
