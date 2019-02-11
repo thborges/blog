@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2019-01-07T23:08:56-02:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">3D, circuits and coding projects</title><subtitle>Documentation for some profissional and hobbie projects about 3D printers modifications, 3D designs, algorithms, circuits and more. Thank you for reading. Fell free to contact me.</subtitle><entry><title type="html">Reducing Marlin firmware binary size to fit in your 3D printer board memory</title><link href="http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size.html" rel="alternate" type="text/html" title="Reducing Marlin firmware binary size to fit in your 3D printer board memory" /><published>2019-01-07T18:44:14-02:00</published><updated>2019-01-07T18:44:14-02:00</updated><id>http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size</id><content type="html" xml:base="http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size.html">&lt;p&gt;How to reduce the Marlin binary size? Here are my special compilation flags that was able to reduce it by almost 6K.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2019-02-11T12:22:10-02:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">3D, circuits and coding projects</title><subtitle>Documentation for some profissional and hobbie projects about 3D printers modifications, 3D designs, algorithms, circuits and more. Thank you for reading. Fell free to contact me.</subtitle><entry><title type="html">Reducing Marlin firmware binary size to fit in your 3D printer board memory</title><link href="http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size.html" rel="alternate" type="text/html" title="Reducing Marlin firmware binary size to fit in your 3D printer board memory" /><published>2019-01-07T18:44:14-02:00</published><updated>2019-01-07T18:44:14-02:00</updated><id>http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size</id><content type="html" xml:base="http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size.html">&lt;p&gt;How to reduce the Marlin binary size? Here are my special compilation flags that was able to reduce it by almost 6K.&lt;/p&gt;
 
 &lt;p&gt;Changing them is easy wether you are using Arduino IDE or PlataformIO.&lt;/p&gt;
 
@@ -52,4 +52,22 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;You can verify what each of these options do in avr-gcc man page or online at &lt;a href=&quot;http://ccrma.stanford.edu/planetccrma/man/man1/avr-gcc.1.html&quot;&gt;avr-gcc manpage&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">How to reduce the Marlin binary size? Here are my special compilation flags that was able to reduce it by almost 6K.</summary></entry></feed>
+&lt;p&gt;You can verify what each of these options do in avr-gcc man page or online at &lt;a href=&quot;http://ccrma.stanford.edu/planetccrma/man/man1/avr-gcc.1.html&quot;&gt;avr-gcc manpage&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div style=&quot;border-bottom: 1px solid #e8e8e8;&quot;&gt;Thanks for reading! Please leave a comment below.&lt;p /&gt;&lt;/div&gt;
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+  var disqus_config = function () {
+    this.page.url = document.location.href;
+    this.page.identifier = document.location.pathname;
+  };
+
+  (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thborges.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+&lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><author><name></name></author><summary type="html">How to reduce the Marlin binary size? Here are my special compilation flags that was able to reduce it by almost 6K.</summary></entry></feed>

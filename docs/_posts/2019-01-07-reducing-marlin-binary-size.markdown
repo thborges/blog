@@ -41,3 +41,5 @@ Some of my sizes using PlatformIO when compiling Marlin 1.1.9 for my customized 
 | 118872 | -fno-tree-scev-cprop -fno-split-wide-types -Wl,--relax -mcall-prologues -finline-limit=3 -ffast-math |
 
 You can verify what each of these options do in avr-gcc man page or online at [avr-gcc manpage](http://ccrma.stanford.edu/planetccrma/man/man1/avr-gcc.1.html).
+
+{% include disqus.html %}
