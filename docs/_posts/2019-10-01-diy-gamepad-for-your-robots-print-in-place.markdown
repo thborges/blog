@@ -101,7 +101,7 @@ The zip file below has the firmware coded in C language and a pre-compiled versi
 Of course, the device that you want to control should receive and interpret the gamepad signal. Below, there is also an example of how to accomplish that in an Atmega processor.
 
 * <a href="{{site.baseurl}}/assets/code/diyctrl_firmware.zip">Firmware and stuff needed to program it on PIC</a>
-* <a href="">Arduino example on the receiver side</a>
+* <a href="{{site.baseurl}}/assets/code/diyctrl_example_atmega.cpp">Arduino example for the receiver side</a>
 
 # Additional Assembled Photos for Reference
 
