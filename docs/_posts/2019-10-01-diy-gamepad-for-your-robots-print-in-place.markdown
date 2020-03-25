@@ -105,12 +105,10 @@ Of course, the device that you want to control should receive and interpret the 
 
 # Additional Assembled Photos for Reference
 
-<figure style="display: inline-flex;">
+<figure>
 <a href="{{site.baseurl}}/assets/images/diyctrl_printer.jpeg"><img class="border" style="width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_printer.jpeg"></a>
 <a href="{{site.baseurl}}/assets/images/diyctrl_internal.jpeg"><img class="border" style="width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_internal.jpeg"></a>
 <a href="{{site.baseurl}}/assets/images/diyctrl_acid_bath.jpeg"><img class="border" style="width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_acid_bath.jpeg"></a>
-</figure>
-<figure style="display: inline-flex;">
 <a href="{{site.baseurl}}/assets/images/diyctrl_back_board.jpeg"><img class="border" style="width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_back_board.jpeg"></a>
 <a href="{{site.baseurl}}/assets/images/diyctrl_back.jpeg"><img class="border" style="width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_back.jpeg"></a>
 <div style="margin: 5px; padding: 5px; width: 300px;"/>
