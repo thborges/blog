@@ -1,4 +1,207 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2019-02-14T19:07:07-02:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">3D, circuits and coding projects</title><subtitle>Documentation of some professional and hobby projects about 3D printers modifications, 3D designs, algorithms, circuits and more. Thank you for reading. Fell free to contact me.</subtitle><entry><title type="html">Reducing Marlin firmware binary size to fit in your 3D printer board memory</title><link href="http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size.html" rel="alternate" type="text/html" title="Reducing Marlin firmware binary size to fit in your 3D printer board memory" /><published>2019-01-07T18:44:14-02:00</published><updated>2019-01-07T18:44:14-02:00</updated><id>http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size</id><content type="html" xml:base="http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size.html">&lt;p&gt;How to reduce the Marlin binary size? Here are my special compilation flags that were able to reduce it by almost 6K.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-03-25T18:43:22-03:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">3D, circuits and coding projects</title><subtitle>Documentation of some professional and hobby projects about 3D printers modifications, 3D designs, algorithms, circuits and more. Thank you for reading. Fell free to contact me.</subtitle><entry><title type="html">A DIY Wireless Gamepad for Your Robots: 3D Model, Circuit, and Firmware</title><link href="http://localhost:4000/blog/robots/2019/10/01/diy-gamepad-for-your-robots-print-in-place.html" rel="alternate" type="text/html" title="A DIY Wireless Gamepad for Your Robots: 3D Model, Circuit, and Firmware" /><published>2019-10-01T17:44:14-03:00</published><updated>2019-10-01T17:44:14-03:00</updated><id>http://localhost:4000/blog/robots/2019/10/01/diy-gamepad-for-your-robots-print-in-place</id><content type="html" xml:base="http://localhost:4000/blog/robots/2019/10/01/diy-gamepad-for-your-robots-print-in-place.html">&lt;p&gt;&lt;a href=&quot;/blog/assets/images/diyctrl_main.jpeg&quot;&gt;&lt;img class=&quot;border&quot; style=&quot;float: right; width: 300px;&quot; src=&quot;/blog/assets/images/diyctrl_main.jpeg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This page describes a DIY 3D printed wireless gamepad designed for controlling an arm robot. It was developed under a technological research project¹ in Brazil at the Federal University of Jataí - GO². The project aims to build very low-cost robots to use in educational activities in Brazilian public schools.&lt;/p&gt;
+
+&lt;p&gt;Although there are many readily available gamepad or similar wireless controllers, and their quality is a must, the cost of bringing several of them to enable a class activity didn’t fit our budget. By the way, we also want to empower the students and encourage them to pursue STEM careers, and nothing better than presenting something they can create themselves in a maker lab!&lt;/p&gt;
+
+&lt;h1 id=&quot;summary-of-characteristics&quot;&gt;Summary of Characteristics&lt;/h1&gt;
+
+&lt;p&gt;The gamepad has two thumbsticks, each one pressing four buttons disposed in the left, right, top, and bottom directions. There are two additional buttons in the center and a feedback light that flashes in every move. Its mainboard uses a small PIC processor powered by two CR2032 3V button cells that sends the pressed buttons through a standard 433 Mhz RF module.&lt;/p&gt;
+
+&lt;p&gt;Main characteristics:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Dimensions (WxDxH), without antenna&lt;/td&gt;
+      &lt;td&gt;127x60x40mm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Filament used to print&lt;/td&gt;
+      &lt;td&gt;~50g of ABS, PLA, or PETG&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Printed pieces&lt;/td&gt;
+      &lt;td&gt;Main frame, two rounded buttons, and two handles&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Battery&lt;/td&gt;
+      &lt;td&gt;Two CR2032 in series, 3V each&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Processor&lt;/td&gt;
+      &lt;td&gt;PIC, Model 16F676P&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;the-print-in-place-3d-model&quot;&gt;The Print-In-Place 3D Model&lt;/h1&gt;
+
+&lt;figure class=&quot;border&quot;&gt;
+&lt;div style=&quot;display: inline-flex&quot;&gt;
+&lt;img style=&quot;height: 150px;&quot; src=&quot;/blog/assets/images/diyctrl_model.png&quot; /&gt;
+&lt;img style=&quot;height: 150px;&quot; src=&quot;/blog/assets/images/diyctrl_model_pieces.png&quot; /&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;The 3D assembled model (left) and its internal components (right).&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The pictures above show a model of the assembled gamepad (left) and its internal pieces (right). There is no need for support when printing, and the assembling requires no screws or glue.&lt;/p&gt;
+
+&lt;p&gt;The pieces to 3D print are:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;The external frame, in brown, and the thumbstick eye-balls that together compose a print-in-place object (i.e., you print it in position, not separated),&lt;/li&gt;
+  &lt;li&gt;Two round buttons, and&lt;/li&gt;
+  &lt;li&gt;Two thumbstick handles.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;border&quot; style=&quot;float: right&quot;&gt;
+&lt;iframe height=&quot;180&quot; src=&quot;https://www.youtube.com/embed/uetGYyZBsZk?autohide=1&amp;amp;showinfo=0&amp;amp;controls=0&amp;amp;modestbranding=1&amp;amp;version=3&amp;amp;showsearch=0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;figcaption&gt;The expected result of printing the frame in-place. This is from an early prototype. The actual model is more tight!&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The most challenging piece to print is the frame as sometimes the thumbstick eye-balls fuse to it. However, you can successfully print it with 0.2 or 0.3mm layer height, using ABS or PLA, in a well-calibrated printer. Slow it down in case of fusion and tune the retraction option. I printed it successfully in a very customized Anet A8, and hence, it should be not that difficult in a better printer.&lt;/p&gt;
+
+&lt;p&gt;This &lt;a href=&quot;/blog/assets/stls/diyctrl_all.stl&quot;&gt;.stl file&lt;/a&gt; contains all needed objects in its correct orientation.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-circuit-board&quot;&gt;The Circuit Board&lt;/h1&gt;
+
+&lt;figure class=&quot;border&quot;&gt;
+&lt;div style=&quot;display: inline-flex;&quot;&gt;
+&lt;a href=&quot;/blog/assets/images/diyctrl_board.png&quot;&gt;&lt;img style=&quot;height: 150px;&quot; src=&quot;/blog/assets/images/diyctrl_board.png&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/blog/assets/images/diyctrl_schematic.png&quot;&gt;&lt;img style=&quot;height: 150px;&quot; src=&quot;/blog/assets/images/diyctrl_schematic.png&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;PCB layout and schematics diagram.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The PCB format fits the 3D printed frame. It has rounded sides, and two holes of 26mm diameter like pictured above. The holes free the movement of the thumbstick eye-balls enabling their pads to touch the buttons.&lt;/p&gt;
+
+&lt;p&gt;The board has a pin header to program the processor using the PIC high-voltage protocol, that is, the one you provide ~10V DC on the MCLR pin. What motivated us towards the choice of a PIC was only the price. For sure, an Atmega processor is a favorite option nowadays and has a more accessible programming interface. However, it costs almost twice the price where we live. Options include some Asiatic processors, like the ones from Padauk, that are even less popular but are even cheaper. If you have some indication, we thank you for commenting below.&lt;/p&gt;
+
+&lt;p&gt;The list of components you will need to make the board is (Bill of Materials, BOM):&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;6×6x5.5mm Right Angle Micro Momentary Tactile Push Button, like this one &lt;a href=&quot;https://ebay.to/3bno2Ot&quot;&gt;https://ebay.to/3bno2Ot&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;6x6x5mm Momentary Tactile Push Button, like this one &lt;a href=&quot;https://ebay.to/2wztAqt&quot;&gt;https://ebay.to/2wztAqt&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;LED 3mm with long legs&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;10 kΩ resistors, 1/4W was enough&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1 kΩ resistor, 1/4W was enough&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;12x6cm&lt;/td&gt;
+      &lt;td&gt;Single sided copper board to etch&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;433 MHz RF module + antenna, like this one &lt;a href=&quot;https://ebay.to/2UgkPur&quot;&gt;https://ebay.to/2UgkPur&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;20cm&lt;/td&gt;
+      &lt;td&gt;Enameled copper wire gauge xxx for antenna&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Of course, depending on your preferred way of making a board, you should add materials to etch and solder the components on it. An option is to order it pre-fabricated from companies like &lt;a href=&quot;https://jlcpcb.com&quot;&gt;JLC PCB&lt;/a&gt; or &lt;a href=&quot;https://www.pcbway.com&quot;&gt;PCB Way&lt;/a&gt;. Just use the provided Gerber files bellow when ordering.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/assets/boards/diyctrl_eagle_board_files.zip&quot;&gt;Eagle PCB files and Gerber files&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/assets/boards/diyctrl_board.pdf&quot;&gt;Board PDF, e.g., for tonner transfer if you haven’t Eagle&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To mention an alternative, you can replace the wireless module by a two-wire cable wired to GND and RFSIG if wireless turns to be faulty for your application due to low fidelity, weak signal, or bad antennas.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-software-and-wireless-protocol&quot;&gt;The Software and Wireless Protocol&lt;/h1&gt;
+
+&lt;p&gt;The wireless protocol is a pulse-period encoded system, based on the protocol designed in &lt;a href=&quot;https://www.romanblack.com/RF/cheapRFmodules.htm&quot;&gt;https://www.romanblack.com/RF/cheapRFmodules.htm&lt;/a&gt;. Using a default radio library was not an option for us due to choice of the PIC processor.&lt;/p&gt;
+
+&lt;p&gt;To balance the receiver gain circuit and improves the transmission, we send:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;a preamble containing high (170ms) and low (80ms) pulses ten times,&lt;/li&gt;
+  &lt;li&gt;two bytes indicating the pressed buttons, one button per bit: a &lt;em&gt;zero&lt;/em&gt; bit sends a 20ms high and 80ms low signal, and a &lt;em&gt;one&lt;/em&gt; bit sends a 70ms high and 80ms low, and&lt;/li&gt;
+  &lt;li&gt;a byte containing a CRC8 of the two previous bytes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can find additional details of the protocol in the source code. Fell free to ask anything.&lt;/p&gt;
+
+&lt;p&gt;The zip file below has the firmware coded in C language and a pre-compiled version of it using SDCC for PIC16F676P (.hex file). There is also an Arduino project and a python file that you can use to transfer the firmware to the PIC. All the credit and origin of the source files are in the comments. I made very little changes compared to the original, mainly to make them work in my environment.&lt;/p&gt;
+
+&lt;p&gt;Of course, the device that you want to control should receive and interpret the gamepad signal. Below, there is also an example of how to accomplish that in an Atmega processor.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/assets/code/diyctrl_firmware.zip&quot;&gt;Firmware and stuff needed to program it on PIC&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/assets/code/diyctrl_example_atmega.cpp&quot;&gt;Arduino example for the receiver side&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;additional-assembled-photos-for-reference&quot;&gt;Additional Assembled Photos for Reference&lt;/h1&gt;
+
+&lt;figure&gt;
+&lt;a href=&quot;/blog/assets/images/diyctrl_printer.jpeg&quot;&gt;&lt;img class=&quot;border&quot; style=&quot;width: 300px;&quot; src=&quot;/blog/assets/images/diyctrl_printer.jpeg&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/blog/assets/images/diyctrl_internal.jpeg&quot;&gt;&lt;img class=&quot;border&quot; style=&quot;width: 300px;&quot; src=&quot;/blog/assets/images/diyctrl_internal.jpeg&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/blog/assets/images/diyctrl_acid_bath.jpeg&quot;&gt;&lt;img class=&quot;border&quot; style=&quot;width: 300px;&quot; src=&quot;/blog/assets/images/diyctrl_acid_bath.jpeg&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/blog/assets/images/diyctrl_back_board.jpeg&quot;&gt;&lt;img class=&quot;border&quot; style=&quot;width: 300px;&quot; src=&quot;/blog/assets/images/diyctrl_back_board.jpeg&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/blog/assets/images/diyctrl_back.jpeg&quot;&gt;&lt;img class=&quot;border&quot; style=&quot;width: 300px;&quot; src=&quot;/blog/assets/images/diyctrl_back.jpeg&quot; /&gt;&lt;/a&gt;
+&lt;div style=&quot;margin: 5px; padding: 5px; width: 300px;&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;h1 id=&quot;the-joy-of-seeing-it-in-action-and-recruiting-future-stem-scientists&quot;&gt;The Joy of Seeing it in Action and Recruiting Future STEM Scientists!&lt;/h1&gt;
+
+&lt;p&gt;All the hard work through these intricate pieces of design and software deserves a reward! As part of a larger project, we used this gamepad to control robots presented in science fairs at our university. We encourage boys and girls from public schools and of any age to use it and complete a challenge with ping-pong balls. See it in action below!&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img class=&quot;border&quot; style=&quot;height: 300px;&quot; src=&quot;/blog/assets/images/diyctrl_espaco_profissoes_2019_c2.jpg&quot; /&gt;
+&lt;img class=&quot;border&quot; style=&quot;height: 300px;&quot; src=&quot;/blog/assets/images/diyctrl_espaco_profissoes_2019_c3.jpg&quot; /&gt;
+&lt;img class=&quot;border&quot; style=&quot;height: 300px;&quot; src=&quot;/blog/assets/images/diyctrl_espaco_profissoes_2019_c4.jpg&quot; /&gt;
+&lt;img class=&quot;border&quot; style=&quot;height: 300px;&quot; src=&quot;/blog/assets/images/diyctrl_espaco_profissoes_2019_c5.jpg&quot; /&gt;
+&lt;img class=&quot;border&quot; style=&quot;width: 300px;&quot; src=&quot;/blog/assets/images/diyctrl_espaco_profissoes_2019_c6.jpg&quot; /&gt;
+&lt;img class=&quot;border&quot; style=&quot;width: 300px;&quot; src=&quot;/blog/assets/images/diyctrl_espaco_profissoes_2019_c1.jpg&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;h1 id=&quot;points-for-improvement&quot;&gt;Points for Improvement&lt;/h1&gt;
+
+&lt;p&gt;Although there are many areas of improvement, the ones we like to highlight are:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Add a power switch: although the PIC processor is programmed to sleep, an on-off switch will be better than removing the battery when not in use;&lt;/li&gt;
+  &lt;li&gt;Turns axis pads adjustable: the contact of the axis pads with PCB buttons can skip hits, depending on the pressure applied by the user. Adding little holes for small screws in the pads will allow tuning the contact and make it less faulty.&lt;/li&gt;
+  &lt;li&gt;Improve the battery slot: We did the initial PCB design with a button cell slot in mind, but it turns out to be tough to find it in the local market. Maybe the slot in the frame should be remodeled to accommodate another type of battery, e.g., a rechargeable one, with more straightforward contacts to solder in the PCB to interface with it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;¹ Especificação e Construção de Protótipos Funcionais de Kits Robóticos de Baixo Custo para uso em Processos de Ensino-Aprendizagem.&lt;/p&gt;
+
+&lt;p&gt;² Former Regional Jataí of Federal University of Goiás.&lt;/p&gt;
+
+&lt;div style=&quot;border-bottom: 1px solid #e8e8e8;&quot;&gt;Thanks for reading! Please leave a comment below.&lt;p /&gt;&lt;/div&gt;
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+  var disqus_config = function () {
+    this.page.url = document.location.href;
+    this.page.identifier = document.location.pathname;
+  };
+
+  (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thborges.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+&lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Reducing Marlin firmware binary size to fit in your 3D printer board memory</title><link href="http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size.html" rel="alternate" type="text/html" title="Reducing Marlin firmware binary size to fit in your 3D printer board memory" /><published>2019-01-07T18:44:14-02:00</published><updated>2019-01-07T18:44:14-02:00</updated><id>http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size</id><content type="html" xml:base="http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size.html">&lt;p&gt;How to reduce the Marlin binary size? Here are my special compilation flags that were able to reduce it by almost 6K.&lt;/p&gt;
 
 &lt;p&gt;Changing them is easy wether you are using Arduino IDE or PlataformIO.&lt;/p&gt;
 

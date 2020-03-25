@@ -504,11 +504,46 @@ table {
   .highlight .il {
     color: #099; }
 
-.site-header, .site-footer {
+body {
   background-color: #e8e8e8; }
+
+.page-content {
+  padding-top: 0; }
+
+.page-content .wrapper {
+  background: white;
+  border-radius: 10px;
+  padding-top: 30px; }
 
 .post-list-heading {
   display: none; }
 
 .post-header {
   border-bottom: 1px solid #e8e8e8; }
+
+.border {
+  border: 1px solid #ddd;
+  margin: 5px;
+  padding: 5px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2); }
+
+table {
+  margin-left: 1px;
+  margin-right: 1px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2); }
+
+figure {
+  display: table; }
+
+figure > img {
+  display: inline; }
+
+figcaption {
+  display: table-caption;
+  caption-side: bottom;
+  font-style: italic;
+  font-size: smaller;
+  margin-bottom: 5px; }
+
+h1 {
+  clear: both; }

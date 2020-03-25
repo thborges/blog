@@ -119,7 +119,16 @@ Of course, the device that you want to control should receive and interpret the 
 
 # The Joy of Seeing it in Action and Recruiting Future STEM Scientists!
 
-All the hard work through these intricate pieces of design and software deserves a reward! As part of a larger project, we used this gamepad to control robots presented in science fairs at our university. We encourage boys and girls from public schools and of any age to use it and complete a challenge with ping-pong balls. See it in action in the videos below!
+All the hard work through these intricate pieces of design and software deserves a reward! As part of a larger project, we used this gamepad to control robots presented in science fairs at our university. We encourage boys and girls from public schools and of any age to use it and complete a challenge with ping-pong balls. See it in action below!
+
+<figure>
+<img class="border" style="height: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_espaco_profissoes_2019_c2.jpg">
+<img class="border" style="height: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_espaco_profissoes_2019_c3.jpg">
+<img class="border" style="height: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_espaco_profissoes_2019_c4.jpg">
+<img class="border" style="height: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_espaco_profissoes_2019_c5.jpg">
+<img class="border" style="width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_espaco_profissoes_2019_c6.jpg">
+<img class="border" style="width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_espaco_profissoes_2019_c1.jpg">
+</figure>
 
 # Points for Improvement
 

@@ -42,6 +42,10 @@ figure {
 	display: table;
 }
 
+figure > img {
+	display: inline;
+}
+
 figcaption {
 	display: table-caption;
 	caption-side: bottom;
