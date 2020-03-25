@@ -3,8 +3,18 @@
 
 @import "minima";
 
-.site-header, .site-footer {
+body {
 	background-color: #e8e8e8;
+}
+
+.page-content {
+	padding-top: 0;
+}
+
+.page-content .wrapper {
+	background: white;
+	border-radius: 10px;
+	padding-top: 30px;
 }
 
 .post-list-heading {
