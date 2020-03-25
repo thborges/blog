@@ -27,3 +27,20 @@ table {
 	margin-right: 1px;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
 }
+
+figure {
+	display: table;
+}
+
+figcaption {
+	display: table-caption;
+	caption-side: bottom;
+	font-style: italic;
+	font-size: smaller;
+	margin-bottom: 5px;
+}
+
+h1 {
+	clear: both;
+}
+
