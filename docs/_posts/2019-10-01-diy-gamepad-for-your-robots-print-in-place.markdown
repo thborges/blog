@@ -48,11 +48,11 @@ This <a href="{{site.baseurl}}/assets/stls/diyctrl_all.stl">.stl file</a> contai
 # The Circuit Board
 
 <figure style="display: inline-flex;">
-<img class="border" style="width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_board.png">
-<img class="border" style="width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_schematic.png">
+<a href="{{site.baseurl}}/assets/images/diyctrl_board.png"><img class="border" style="width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_board.png"></a>
+<a href="{{site.baseurl}}/assets/images/diyctrl_schematic.png"><img class="border" style="width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_schematic.png"></a>
 </figure>
 
-The PCB is designed to fit the 3D printed frame. It has rounded sides and two holes of 26mm diameter like pictured above. The holes free the movement of the axis "eye-balls" making their pads touch the buttons.
+The PCB is designed to fit the 3D printed frame. It has rounded sides and two holes of 26mm diameter like pictured above. The holes free the movement of the axis "eye-balls" enabling their pads touch the buttons.
 
 The board has a pin header to program the PIC processor. It was designed to be programmed by high-voltage protocol, that is, you will provide ~10V DC on MCLR pin. What motivated us towards the choice of a PIC was only the price. For sure, an Atmega processor is a more popular choice nowadays, and have a simpler programming interface. However, it costs almost double the price where we live. We are evaluating other processor options even cheaper, like the ones of Padauk. If you have some indication, please comment below. We thank you!
 
@@ -73,14 +73,22 @@ Of course, depending on your preferred way of making a board, you should add mat
 * <a href="{{site.baseurl}}/assets/boards/diyctrl_eagle_board_files.zip">Eagle PCB files and Gerber files</a>
 * <a href="{{site.baseurl}}/assets/boards/diyctrl_board.pdf">Board PDF, e.g., for tonner transfer if you haven't Eagle</a>.
 
-Just to mention an alternative, you can use a two-wire cable (wired to GND and SIG) instead of the wireless module. This can be the case if wireless turns to be faulty for your application due to fidelity, poor signal, antennas, etc.
+Just to mention an alternative, you can use a two-wire cable (wired to GND and RFSIG) instead of the wireless module. This can be the case if wireless turns to be faulty for your application due to fidelity, poor signal, antennas, etc.
 
 
 # The Software and Wireless Protocol
 
-The wireless protocol is a pulse-period encoded system, based on the protocol designed in <https://www.romanblack.com/RF/cheapRFmodules.htm>.
+The wireless protocol is a pulse-period encoded system, based on the protocol designed in <https://www.romanblack.com/RF/cheapRFmodules.htm>. Using a default radio library was not an option for us due to choice of the PIC processor.
 
-In the following file there is the .c version of the firmware and a pre-compiled version using SDCC for PIC16F676P. There is also an Arduino project and a python file that you can use to transfer the firmware to the PIC. All the credit and origin of the files are given in the comments. I made very small changes compared to the original, mainly to make them work in my environment.
+To balance the receiver gain circuit and improves the transmission, we send:
+
+* a preamble containing high (170ms) and low (80ms) pulses ten times;
+* two bytes indicating the pressed buttons: bit *zero* is send as 20ms high and 80ms low, bit *one* is send as 70ms high and 80ms low;
+* a byte containing a CRC8 of the two previous bytes.
+
+You can find additional details of the protocol in the source code. Fell free to ask anything.
+
+The zip file below has the firmware coded in C language and a pre-compiled version of it using SDCC for PIC16F676P (.hex file). There is also an Arduino project and a python file that you can use to transfer the firmware to the PIC. All the credit and origin of the files are given in the comments. I made very small changes compared to the original, mainly to make them work in my environment.
 
 Of course, the receiver side, i.e., the "thing" that you want to control, need to receive and process the signal. Below there is also an example of receiving the signal in an Atmega processor.
 
