@@ -7,56 +7,65 @@ categories: robots
 
 <a href="{{site.baseurl}}/assets/images/diyctrl_main.jpeg"><img class="border" style="float: right; width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_main.jpeg"></a>
 
-This page describes a DIY, 3D printed, wireless gamepad designed for controlling an arm robot. It was developed under a technological research project¹ in Brazil, at the Federal University of Jataí - GO². The technological project aims to build very low-cost robots to use in educational activities in Brazilian public schools.
+This page describes a DIY 3D printed wireless gamepad designed for controlling an arm robot. It was developed under a technological research project¹ in Brazil at the Federal University of Jataí - GO². The project aims to build very low-cost robots to use in educational activities in Brazilian public schools.
 
 Although there are many readily available gamepad or similar wireless controllers, and their quality is a must, the cost of bringing several of them to enable a class activity didn't fit our budget. By the way, we also want to empower the students and encourage them to pursue STEM careers, and nothing better than presenting something they can create themselves in a maker lab!
 
 # Summary of Characteristics
 
-The gamepad has two axis, each one controlling four buttons disposed in the left, right, top, bottom positions. There are two additional buttons in the center and a feedback LED that flashes in every move. Its main board uses a small PIC processor, powered by two CR2032 3V button cells.
+The gamepad has two thumbsticks, each one pressing four buttons disposed in the left, right, top, and bottom directions. There are two additional buttons in the center and a feedback light that flashes in every move. Its mainboard uses a small PIC processor powered by two CR2032 3V button cells that sends the pressed buttons through a standard 433 Mhz RF module.
 
 Main characteristics:
 
 |--------------|:---------|
 | Dimensions (WxDxH), without antenna | 127x60x40mm |
-| Filament used to print | ~50g from ABS, PLA, PETG |
-| Printed pieces | Main frame, two rounded buttons, and two axis handles |
+| Filament used to print | ~50g of ABS, PLA, or PETG |
+| Printed pieces | Main frame, two rounded buttons, and two handles |
 | Battery | Two CR2032 in series, 3V each |
 | Processor | PIC, Model 16F676P |
 
 # The Print-In-Place 3D Model
 
-<figure style="display: inline-flex;">
-<img class="border" style="width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_model.png">
-<img class="border" style="width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_model_pieces.png">
+<figure class="border">
+<div style="display: inline-flex">
+<img style="height: 150px;" src="{{site.baseurl}}/assets/images/diyctrl_model.png">
+<img style="height: 150px;" src="{{site.baseurl}}/assets/images/diyctrl_model_pieces.png">
+</div>
+<figcaption>The 3D assembled model (left) and its internal components (right).</figcaption>
 </figure>
 
-The pictures above show a model of the "assembled" gamepad (left) and its internal pieces (right). It was designed to use no screws or glue when assembling, and also requires no support to print.
+The pictures above show a model of the assembled gamepad (left) and its internal pieces (right). There is no need for support when printing, and the assembling requires no screws or glue.
 
-The following pieces should be printed:
-
-* The external frame (in brown) and the axis "eye-balls", that together compose a <a href="">print-in-place</a> object (i.e., you print it in position, not separated),
+The pieces to 3D print are:
+* The external frame, in brown, and the thumbstick eye-balls that together compose a print-in-place object (i.e., you print it in position, not separated),
 * Two round buttons, and
-* Two axis handles.
+* Two thumbstick handles.
 
-<iframe class="border" style="float: right" width="300" src="https://www.youtube.com/embed/uetGYyZBsZk?autohide=1&showinfo=0&controls=0&modestbranding=1&version=3&showsearch=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<figure class="border" style="float: right">
+<iframe height="180" src="https://www.youtube.com/embed/uetGYyZBsZk?autohide=1&showinfo=0&controls=0&modestbranding=1&version=3&showsearch=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<figcaption>The expected result of printing the frame in-place. This is from an early prototype. The actual model is more tight!</figcaption>
+</figure>
 
-The most complex piece to print is the print-in-place frame. Sometimes the axis "eye-balls" fuse to the external frame, but you can successfully print it with 0.2 and 0.3mm layer height in ABS or PLA in a well calibrated printer. I've printed it successfully in a very customized Anet A8, thus it should be not that difficult in a better printer.
+The most challenging piece to print is the frame as sometimes the thumbstick eye-balls fuse to it. However, you can successfully print it with 0.2 or 0.3mm layer height, using ABS or PLA, in a well-calibrated printer. Slow it down in case of fusion and tune the retraction option. I printed it successfully in a very customized Anet A8, and hence, it should be not that difficult in a better printer.
 
 This <a href="{{site.baseurl}}/assets/stls/diyctrl_all.stl">.stl file</a> contains all needed objects in its correct orientation.
 
 # The Circuit Board
 
-<figure style="display: inline-flex;">
-<a href="{{site.baseurl}}/assets/images/diyctrl_board.png"><img class="border" style="width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_board.png"></a>
-<a href="{{site.baseurl}}/assets/images/diyctrl_schematic.png"><img class="border" style="width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_schematic.png"></a>
+<figure class="border">
+<div style="display: inline-flex;">
+<a href="{{site.baseurl}}/assets/images/diyctrl_board.png"><img style="height: 150px;" src="{{site.baseurl}}/assets/images/diyctrl_board.png"></a>
+<a href="{{site.baseurl}}/assets/images/diyctrl_schematic.png"><img style="height: 150px;" src="{{site.baseurl}}/assets/images/diyctrl_schematic.png"></a>
+</div>
+<figcaption>PCB layout and schematics diagram.</figcaption>
 </figure>
 
-The PCB is designed to fit the 3D printed frame. It has rounded sides and two holes of 26mm diameter like pictured above. The holes free the movement of the axis "eye-balls" enabling their pads touch the buttons.
+The PCB format fits the 3D printed frame. It has rounded sides, and two holes of 26mm diameter like pictured above. The holes free the movement of the thumbstick eye-balls enabling their pads to touch the buttons.
 
-The board has a pin header to program the PIC processor. It was designed to be programmed by high-voltage protocol, that is, you will provide ~10V DC on MCLR pin. What motivated us towards the choice of a PIC was only the price. For sure, an Atmega processor is a more popular choice nowadays, and have a simpler programming interface. However, it costs almost double the price where we live. We are evaluating other processor options even cheaper, like the ones of Padauk. If you have some indication, please comment below. We thank you!
+The board has a pin header to program the processor using the PIC high-voltage protocol, that is, the one you provide ~10V DC on the MCLR pin. What motivated us towards the choice of a PIC was only the price. For sure, an Atmega processor is a favorite option nowadays and has a more accessible programming interface. However, it costs almost twice the price where we live. Options include some Asiatic processors, like the ones from Padauk, that are even less popular but are even cheaper. If you have some indication, we thank you for commenting below.
 
-This is the list of components you will need to make the board (Bill of Materials - BOM):
+
+The list of components you will need to make the board is (Bill of Materials, BOM):
 
 |-|-|
 | 8 | 6×6x5.5mm Right Angle Micro Momentary Tactile Push Button, like this one <https://ebay.to/3bno2Ot> |
@@ -73,8 +82,7 @@ Of course, depending on your preferred way of making a board, you should add mat
 * <a href="{{site.baseurl}}/assets/boards/diyctrl_eagle_board_files.zip">Eagle PCB files and Gerber files</a>
 * <a href="{{site.baseurl}}/assets/boards/diyctrl_board.pdf">Board PDF, e.g., for tonner transfer if you haven't Eagle</a>.
 
-Just to mention an alternative, you can use a two-wire cable (wired to GND and RFSIG) instead of the wireless module. This can be the case if wireless turns to be faulty for your application due to fidelity, poor signal, antennas, etc.
-
+To mention an alternative, you can replace the wireless module by a two-wire cable wired to GND and RFSIG if wireless turns to be faulty for your application due to low fidelity, weak signal, or bad antennas.
 
 # The Software and Wireless Protocol
 
@@ -82,15 +90,15 @@ The wireless protocol is a pulse-period encoded system, based on the protocol de
 
 To balance the receiver gain circuit and improves the transmission, we send:
 
-* a preamble containing high (170ms) and low (80ms) pulses ten times;
-* two bytes indicating the pressed buttons: bit *zero* is send as 20ms high and 80ms low, bit *one* is send as 70ms high and 80ms low;
+* a preamble containing high (170ms) and low (80ms) pulses ten times,
+* two bytes indicating the pressed buttons, one button per bit: a *zero* bit sends a 20ms high and 80ms low signal, and a *one* bit sends a 70ms high and 80ms low, and
 * a byte containing a CRC8 of the two previous bytes.
 
 You can find additional details of the protocol in the source code. Fell free to ask anything.
 
-The zip file below has the firmware coded in C language and a pre-compiled version of it using SDCC for PIC16F676P (.hex file). There is also an Arduino project and a python file that you can use to transfer the firmware to the PIC. All the credit and origin of the files are given in the comments. I made very small changes compared to the original, mainly to make them work in my environment.
+The zip file below has the firmware coded in C language and a pre-compiled version of it using SDCC for PIC16F676P (.hex file). There is also an Arduino project and a python file that you can use to transfer the firmware to the PIC. All the credit and origin of the source files are in the comments. I made very little changes compared to the original, mainly to make them work in my environment.
 
-Of course, the receiver side, i.e., the "thing" that you want to control, need to receive and process the signal. Below there is also an example of receiving the signal in an Atmega processor.
+Of course, the device that you want to control should receive and interpret the gamepad signal. Below, there is also an example of how to accomplish that in an Atmega processor.
 
 * <a href="{{site.baseurl}}/assets/code/diyctrl_firmware.zip">Firmware and stuff needed to program it on PIC</a>
 * <a href="">Arduino example on the receiver side</a>
@@ -113,15 +121,14 @@ Of course, the receiver side, i.e., the "thing" that you want to control, need t
 
 # The Joy of Seeing it in Action and Recruiting Future STEM Scientists!
 
-All the hard work trough this complex pieces of design and software deserves a reward! This gamepad is used in science fairs in our university. We encourage boys and girls of any age to use it and complete a challenge with ping-pong balls. See it in action in the videos below!
+All the hard work through these intricate pieces of design and software deserves a reward! As part of a larger project, we used this gamepad to control robots presented in science fairs at our university. We encourage boys and girls from public schools and of any age to use it and complete a challenge with ping-pong balls. See it in action in the videos below!
 
 # Points for Improvement
 
-Although there are many, the ones we like to highlight are:
-
-* Power on-off. Although the PIC processor is programmed to sleep, a power on-off switch will be better than removing the battery when not in use.
-* Turns axis pads adjustable. The contact of the axis pads with PCB buttons can skip presses sometimes, depending on the pressure applied by the user. Adding little holes for small screws in the pads will allow to tune the contact and make it less faulty.
-* Improve the battery slot. The actual PCB was designed with a button cell slot in mind. However, it turns out to be difficult to find one in local market. Maybe a slot in the controller frame can be crafted and simpler contacts can be soldered in the PCB to interface with the actual or another model of battery.
+Although there are many areas of improvement, the ones we like to highlight are:
+* Add a power switch: although the PIC processor is programmed to sleep, an on-off switch will be better than removing the battery when not in use;
+* Turns axis pads adjustable: the contact of the axis pads with PCB buttons can skip hits, depending on the pressure applied by the user. Adding little holes for small screws in the pads will allow tuning the contact and make it less faulty.
+* Improve the battery slot: We did the initial PCB design with a button cell slot in mind, but it turns out to be tough to find it in the local market. Maybe the slot in the frame should be remodeled to accommodate another type of battery, e.g., a rechargeable one, with more straightforward contacts to solder in the PCB to interface with it.
 
 ¹ Especificação e Construção de Protótipos Funcionais de Kits Robóticos de Baixo Custo para uso em Processos de Ensino-Aprendizagem.
 
