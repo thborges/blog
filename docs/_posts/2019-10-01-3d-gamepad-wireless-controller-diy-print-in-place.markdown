@@ -1,19 +1,19 @@
 ---
 layout: post
-title:  "A DIY Wireless Gamepad for Your Robots: 3D Model, Circuit, and Firmware"
+title:  "A Wireless 3D Gamepad DIY for Your Robots: Model, Circuit, and Firmware"
 date:   2019-10-01 18:44:14 -0200
 categories: robots
 ---
 
 <a href="{{site.baseurl}}/assets/images/diyctrl_main.jpeg"><img class="border" style="float: right; width: 300px;" src="{{site.baseurl}}/assets/images/diyctrl_main.jpeg"></a>
 
-This page describes a DIY 3D printed wireless gamepad designed for controlling an arm robot. It was developed under a technological research project¹ in Brazil at the Federal University of Jataí - GO². The project aims to build very low-cost robots to use in educational activities in Brazilian public schools.
+This page describes a DIY Wireless 3D Gamepad designed for controlling an arm robot. It was developed under a technological research project¹ in Brazil at the Federal University of Jataí - GO². The project aims to build very low-cost robots to use in educational activities in Brazilian public schools.
 
 Although there are many readily available gamepad or similar wireless controllers, and their quality is a must, the cost of bringing several of them to enable a class activity didn't fit our budget. By the way, we also want to empower the students and encourage them to pursue STEM careers, and nothing better than presenting something they can create themselves in a maker lab!
 
 # Summary of Characteristics
 
-The gamepad has two thumbsticks, each one pressing four buttons disposed in the left, right, top, and bottom directions. There are two additional buttons in the center and a feedback light that flashes in every move. Its mainboard uses a small PIC processor powered by two CR2032 3V button cells that sends the pressed buttons through a standard 433 Mhz RF module.
+The 3D Gamepad has two thumbsticks, each one pressing four buttons disposed in the left, right, top, and bottom directions. There are two additional buttons in the center and a feedback light that flashes in every move. Its mainboard uses a small PIC processor powered by two CR2032 3V button cells that sends the pressed buttons through a standard 433 Mhz RF module.
 
 Main characteristics:
 
