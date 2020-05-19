@@ -77,7 +77,7 @@ The list of components you will need to make the board is (Bill of Materials, BO
 | 1 | 433 MHz RF module + antenna, like this one <https://ebay.to/2UgkPur> |
 | 20cm | Enameled copper wire gauge xxx for antenna |
 
-Of course, depending on your preferred way of making a board, you should add materials to etch and solder the components on it. An option is to order it pre-fabricated from companies like <a href="https://jlcpcb.com">JLC PCB</a> or <a href="https://www.pcbway.com">PCB Way</a>. Just use the provided Gerber files bellow when ordering.
+Of course, depending on your preferred way of making a board, you should add materials to etch and solder the components on it. An option is to order it pre-fabricated from companies like <a href="https://jlcpcb.com">JLC PCB</a> or <a href="https://www.pcbway.com">PCB Way</a>. Just use the provided Gerber files below when ordering.
 
 * <a href="{{site.baseurl}}/assets/boards/diyctrl_eagle_board_files.zip">Eagle PCB files and Gerber files</a>
 * <a href="{{site.baseurl}}/assets/boards/diyctrl_board.pdf">Board PDF, e.g., for tonner transfer if you haven't Eagle</a>.
