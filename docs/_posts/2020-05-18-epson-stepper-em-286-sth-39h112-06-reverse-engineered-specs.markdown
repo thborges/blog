@@ -7,7 +7,7 @@ categories: 3d
 
 <a href="{{site.baseurl}}/assets/images/em-286-sth-039h112-06.jpeg"><img class="border" style="float: right; width: 300px;" src="{{site.baseurl}}/assets/images/em-286-sth-039h112-06.jpeg"></a>
 
-The EM-286 Shimano STH-39H112-06 is a stepper motor recovered from old FX880, FX890, FX2180, and other EPSON matrix printers. Due to the absence of a proper datasheet, I reverse engineered some of its electrical and mechanical characteristics to use in a personal 3D printer project. I'm documenting the specs here for future reference. Feel free to use and propose any corrections for the parameters below.
+The EM-286 Shimano STH-39H112-06 is a stepper motor recovered from old FX880, FX890, FX2180, and other EPSON matrix printers. To use it in a personal 3D printer project, I reverse engineered some of its electrical and mechanical characteristics. It appears that there is no datasheet of it on the internet. I’m documenting the specs here for future reference. Feel free to use and propose any corrections for the parameters below.
 
 # Mechanical characteristics
 
@@ -38,7 +38,7 @@ Example for a 20 teeth pulley and GT2 2mm belt: 96 * 16 / (20 * 2) = *38.4 steps
 
 # Electrical characteristics
 
-Here are the values I used to drive the motor. I consider them "safe" as the motor can operate barely warm (almost the same ambient temperature). Please don't consider them as maximum or minimum ratings that you find in an official datasheet.
+Here are the values I used to drive the motor. I consider them "safe" as it can operate barely warm (almost the same ambient temperature). Please don't consider them as maximum or minimum ratings that you find in an official datasheet.
 
 | Characteristic | Value |
 | -------------- | ----- |
@@ -50,13 +50,12 @@ Here are the values I used to drive the motor. I consider them "safe" as the mot
 | A4988 current limiting voltage | 0.27V |
 
 
-I limited the current feed to the motor using the potentiometer in the A4988 board. To reduce noise, I used the minimum current that was able to move the 3d printer axis without skipping steps. The voltage, measured between GND and the top of the potentiometer was 0.27V, that according to Pololu formula, and considering Rs = 0.2Ω (cloned version), will feed 0.168 A to the motor, well below 0.8A. That was close enough to the amperage read in series with VMOT: 0.17A. Genuine A4988 have Rs equals to 0.068 or 0.05Ω.
-
+I limited the current feed to the motor using the potentiometer in the A4988 board. To reduce noise, I used the minimum current capable of moving the 3d printer axis without skipping steps. The voltage measured between GND and the top of the potentiometer was 0.27V. According to Pololu formula and considering Rs = 0.2Ω (cloned version), the driver will feed 0.168A to the motor. The amperage read in series with the VMOT pin was 0.17A and was very close to the theoretical value. Genuine A4988 has Rs equals to 0.068 or 0.05Ω.
 
 ⁽¹⁾ In the default cable, coils are pins 1 and 3, and 2 and 4. Thus, to drive it using A4988, you have to connect pins 2 and 3 interchanged. 
 
-⁽²⁾ The service manuals for FX880 and FX890 indicate a supply voltage of 35V. However, it is also mentioned that current was limited depending on the print speed.
+⁽²⁾ The service manuals for FX880 and FX890 indicate a supply voltage of 35V. However, it is also mentioned that the current was limited, depending on the print speed.
 
-⁽³⁾ It is definitely unnecessary to use that amount of current for an 3D printer. I'm not sure the motor can handle this. 
+⁽³⁾ I believe that 0.8A is too much to move a 3D printer axis. It probably makes more sense to improve axis components. In my tests, this motor becomes hot starting at 0.4A so better to stay on the safe side.
 
 {% include disqus.html %}
