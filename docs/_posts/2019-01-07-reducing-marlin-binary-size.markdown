@@ -85,7 +85,7 @@ Import("env")
 env.Append(LINKFLAGS=["--specs=nano.specs"])
 {% endhighlight %}
 
-and add the extra_script option in platformio.ini for your board:
+and add the extra_scripts option in platformio.ini for your board:
 {% highlight python %}
 extra_scripts = add_nanolib.py
 {% endhighlight %}
