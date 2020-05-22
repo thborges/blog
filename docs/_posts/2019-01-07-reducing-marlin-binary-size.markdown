@@ -5,7 +5,7 @@ date:   2019-01-07 18:44:14 -0200
 categories: marlin
 ---
 
-How to reduce the Marlin binary size? Here are a set of special compilation flags and options you can disable to free **up to 16.3 Kb** of memory for common AVR boards. Some build flags are also provided for ARM boards at the end. 
+How to reduce the Marlin binary size? Here are a set of special compilation flags and options you can disable to save **up to 16.3 Kb** of memory for common AVR boards. Some build flags are also provided for ARM boards at the end. 
 
 # Special compilation flags
 
@@ -33,6 +33,13 @@ Not that you should, but you can even try more aggressive optimizations supposed
 -finline-limit=3 -ffast-math
 {% endhighlight %}
 
+In general, the flags ask the compiler to produce smaller and more instrumented output so that the linker can remove more unused code. I'm using these flags since late 2018 without problems.
+
+From these options, **inline-limit** and **mcall-prologues** can slightly interfere in execution velocity due to additional function calls. **Fast-math**, in turn, changes the way math is made in several ways, and I'm not sure it affects Marlin. You can check a list of modifications in using the fast-math flag in this [Stack Overflow answer](https://stackoverflow.com/questions/7420665/what-does-gccs-ffast-math-actually-do/22135559#22135559).
+
+You can verify what each of these options does in avr-gcc man page or online at [avr-gcc manpage](http://ccrma.stanford.edu/planetccrma/man/man1/avr-gcc.1.html). Check also this list of [optimizations for AVR](https://p5r.uk/blog/2008/avr-gcc-optimisations.html).
+
+
 Some of my sizes using PlatformIO to build Marlin 1.1.9 for a customized version of an Anet A8 with filament runout sensor, bed probe, graphical display, wifi and others:
 
 | Size (bytes) | Options |
@@ -42,12 +49,6 @@ Some of my sizes using PlatformIO to build Marlin 1.1.9 for a customized version
 | 123324 | -fno-tree-scev-cprop -fno-split-wide-types -Wl,--relax |
 | 119730 | -fno-tree-scev-cprop -fno-split-wide-types -Wl,--relax -mcall-prologues |
 | 118872 | -fno-tree-scev-cprop -fno-split-wide-types -Wl,--relax -mcall-prologues -finline-limit=3 -ffast-math |
-
-In general, the flags ask the compiler to produce smaller and more instrumented output so that the linker can remove more unused code. I'm using these flags since late 2018 without problems.
-
-From these options, **inline-limit** and **mcall-prologues** can slightly interfere in execution velocity due to additional function calls. **Fast-math**, in turn, changes the way math is made in several ways, and I'm not sure it affects Marlin. You can check a list of modifications in using the fast-math flag in this [Stack Overflow answer](https://stackoverflow.com/questions/7420665/what-does-gccs-ffast-math-actually-do/22135559#22135559).
-
-You can verify what each of these options does in avr-gcc man page or online at [avr-gcc manpage](http://ccrma.stanford.edu/planetccrma/man/man1/avr-gcc.1.html). Check also this list of [optimizations for AVR](https://p5r.uk/blog/2008/avr-gcc-optimisations.html).
 
 
 # Updated sizes for Marlin 2.0
