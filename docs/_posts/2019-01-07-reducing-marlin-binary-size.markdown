@@ -5,7 +5,7 @@ date:   2019-01-07 18:44:14 -0200
 categories: marlin
 ---
 
-How to reduce the Marlin binary size? Here are a set of special compilation flags and options you can disable to free **up to 16.3 Kb** of memory for common AVR boards. Some build flags are also provided for ARM boards at the end. 
+How to reduce the Marlin binary size? Here are a set of special compilation flags and options you can disable to save **up to 16.3 Kb** of memory for common AVR boards. Some build flags are also provided for ARM boards at the end. 
 
 # Special compilation flags
 
