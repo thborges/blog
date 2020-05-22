@@ -76,7 +76,7 @@ Disabling some options in Configuration.h and Configuration_adv.h can help you i
 
 # Build flags for Marlin 2.0 and ARM?
 
-Recently, I built Marlin for a custom ARM board base on an STM32 F103CB (Aka, Blue Pill). All the compiler flags from above can be used, except by -mcall-prologues. However, they are not so beneficial as for AVR. 
+Recently, I built Marlin for a custom ARM board base on an STM32 F103CB (Also known as Blue Pill). All the compiler flags from above can be used, except by -mcall-prologues. However, they are not so beneficial as for AVR. 
 
 The killer option for ARM is to use the nanolib, passing --specs=nano.specs to the linker. To do it, create a new file named add_nanolib.py in the root directory of marlin with the following content:
 
