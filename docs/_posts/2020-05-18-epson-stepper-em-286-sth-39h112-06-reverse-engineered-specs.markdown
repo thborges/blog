@@ -45,17 +45,17 @@ Here are the values I used to drive the motor. I consider them "safe" as it can 
 | Type | Bipolar |
 | Resistance per coil ⁽¹⁾ | 15.1 Ω |
 | Voltage used | 12V ⁽²⁾ |
-| Theoretical current at 12V (Please see ⁽³⁾ and current limiting below) | 0.8A ⁽³⁾  |
+| Theoretical current at 12V per coil (Please see ⁽³⁾ and current limiting below) | 0.8A ⁽³⁾  |
 | Driver | A4988 |
 | A4988 current limiting voltage | 0.27V |
 
 
-I limited the current feed to the motor using the potentiometer in the A4988 board. To reduce noise, I used the minimum current capable of moving the 3d printer axis without skipping steps. The voltage measured between GND and the top of the potentiometer was 0.27V. According to Pololu formula and considering Rs = 0.2Ω (cloned version), the driver will feed 0.168A to the motor. The amperage read in series with the VMOT pin was 0.17A and was very close to the theoretical value. Genuine A4988 has Rs equals to 0.068 or 0.05Ω.
+I limited the current feed to the motor using the potentiometer in the A4988 board. To reduce noise, I used the minimum current capable of moving the 3d printer axis without skipping steps. The voltage measured between GND and the top of the potentiometer was 0.27V. According to Pololu formula and considering Rs = 0.2Ω (cloned version), the driver will feed 0.168A to the motor. The amperage read in series with the VMOT pin was 0.17A and was very close to the formula value. Genuine A4988 has Rs equals to 0.068 or 0.05Ω.
 
 ⁽¹⁾ In the default cable, coils are pins 1 and 3, and 2 and 4. Thus, to drive it using A4988, you have to connect pins 2 and 3 interchanged. 
 
 ⁽²⁾ The service manuals for FX880 and FX890 indicate a supply voltage of 35V. However, it is also mentioned that the current was limited, depending on the print speed.
 
-⁽³⁾ I believe that 0.8A is too much to move a 3D printer axis. It probably makes more sense to improve axis components. In my tests, this motor becomes hot starting at 0.4A so better to stay on the safe side.
+⁽³⁾ I believe that 0.8A is too much to move a 3D printer axis. It probably makes more sense to improve axis components. In my tests, this motor becomes warm starting at 0.4A so better to stay on the safe side.
 
 {% include disqus.html %}
