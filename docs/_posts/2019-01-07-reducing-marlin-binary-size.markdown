@@ -67,16 +67,16 @@ For Ender 3, the flags were able to save **up to 6.4 Kb** for you to enable exce
 
 Disabling some options in Configuration.h and Configuration_adv.h can help you increase the space available for more exceptional options:
 
-| Option | Description | Size recovered (up to) |
-|--------|-------------|----------------|
-| SLIM_LCD_MENUS | Remove extraneous LCD menus, such as those in advanced configurations menu (velocity, acceleration, etc). You still will be able to configure them through M gcode equivalent commands. | 4.7 Kb |
-| ARC_SUPORT | Support to Arc movements. As far as I know, this is mostly used in CNC or laser cutters. The slicers I know can't output arc movements. | 3.3 Kb |
-| LCD_INFO_MENU | A menu with printer information. | 1.7 Kb |
-| SHOW_BOOTSCREEN, SHOW_CUSTOM_BOOTSCREEN, CUSTOM_STATUS_SCREEN_IMAGE | In my opinion, it loses some personality, but the three together can save up to: | 1.4 Kb |
+| Option and Description | Size recovered (up to) |
+|-|-|
+| **SLIM_LCD_MENUS**: Remove extraneous LCD menus, such as those in advanced configurations menu (velocity, acceleration, etc). You still will be able to configure them through M gcode equivalent commands. | 4.7 Kb |
+| **ARC_SUPORT**: Support to Arc movements. As far as I know, this is mostly used in CNC or laser cutters. The slicers I know can't output arc movements. | 3.3 Kb |
+| **LCD_INFO_MENU**: A menu with printer information. | 1.7 Kb |
+| **SHOW_BOOTSCREEN, SHOW_CUSTOM_BOOTSCREEN, CUSTOM_STATUS_SCREEN_IMAGE**: In my opinion, it loses some personality, but the three together can save up to: | 1.4 Kb |
 
 # Build flags for Marlin 2.0 and ARM?
 
-Recently, I built Marlin for a custom ARM board base on an STM32 F103CB (Also known as Blue Pill). All the compiler flags from above can be used, except by -mcall-prologues. However, they are not so beneficial as for AVR. 
+Recently, I built Marlin for a custom ARM board based on an STM32 F103CB (Also known as Blue Pill). All the compiler flags from above can be used, except by -mcall-prologues. However, they are not so beneficial as for AVR. 
 
 The killer option for ARM is to use the Nano C Runtime library, passing --specs=nano.specs to the linker. To do it, create a new file named add_nanolib.py in the root directory of marlin with the following content:
 
@@ -90,7 +90,7 @@ and add the extra_scripts option in platformio.ini for your board:
 extra_scripts = add_nanolib.py
 {% endhighlight %}
 
-The sizes below if for platform = ststm32, framework = arduino, and board = genericSTM32F103CB.
+The sizes below is for platform = ststm32, framework = arduino, and board = genericSTM32F103CB.
 
 | Size (bytes) | build_flags |
 |--------------:|:---------|
