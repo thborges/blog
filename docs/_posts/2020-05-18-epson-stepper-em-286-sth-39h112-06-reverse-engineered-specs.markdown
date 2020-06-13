@@ -36,6 +36,14 @@ steps_per_mm = 96 * 16 / (teeth * tooth_pitch)
 
 Example for a 20 teeth pulley and GT2 2mm belt: 96 * 16 / (20 * 2) = *38.4 steps per mm*. Max resolution in mm = 1/38.4 = 0.026 or ~16 micron.
 
+**Direct extruder using 1/16 micro-stepping and **:
+
+steps_per_mm = 96 * 16 / (gear_diameter * π)
+
+Example for a 11mm diameter filament gear: 96 * 16 / (11 * 3.1415926) = *44.448 steps per mm*. Max resolution in mm = 1/44.448 = 0.022 or ~22 micron.
+
+If using gear or pulley reduction, multiply the result by the gear ratio.
+
 # Electrical characteristics
 
 Here are the values I used to drive the motor. I consider them "safe" as it can operate barely warm (almost the same ambient temperature). Please don't consider them as maximum or minimum ratings that you find in an official datasheet.
