@@ -5,9 +5,7 @@ date:   2020-05-18 22:42:14 -0300
 categories: 3d
 ---
 
-<a href="{{site.baseurl}}/assets/images/em-286-sth-039h112-06.jpeg"><img class="border" style="float: right; width: 300px;" src="{{site.baseurl}}/assets/images/em-286-sth-039h112-06.jpeg"></a>
-
-The EM-286 Shimano STH-39H112-06 is a stepper motor recovered from old FX880, FX890, FX2180, and other EPSON matrix printers. To use it in a personal 3D printer project, I reverse engineered some of its electrical and mechanical characteristics. It appears that there is no datasheet of it on the internet. I’m documenting the specs here for future reference. Feel free to use and propose any corrections for the parameters below.
+<a href="{{site.baseurl}}/assets/images/em-286-sth-039h112-06.jpeg"><img class="border" style="float: right; width: 300px;" src="{{site.baseurl}}/assets/images/em-286-sth-039h112-06.jpeg"></a> The EM-286 Shimano STH-39H112-06 is a stepper motor recovered from old FX880, FX890, FX2180, and other EPSON matrix printers. To use it in a personal 3D printer project, I reverse engineered some of its electrical and mechanical characteristics. It appears that there is no datasheet of it on the internet. I’m documenting the specs here for future reference. Feel free to use and propose any corrections for the parameters below.
 
 # Mechanical characteristics
 
