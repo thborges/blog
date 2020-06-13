@@ -5,7 +5,7 @@ date:   2020-06-13 16:01:14 -0300
 categories: 3d
 ---
 
-<a href="{{site.baseurl}}/assets/images/marlin-nokia-5110-interactive-status-screen.jpg"><img class="border" style="float: right; width: 300px;" src="{{site.baseurl}}/assets/images/marlin-nokia-5110-interactive-status-screen.jpg"></a> This is an interactive status screen for <a href="https://marlinfw.org">Marlin 3D Printer Firmware</a> that I coded while customizing Marlin for a DIY 3D Printer. It enables you to access and tweak the most useful printer functions right from the status screen. The top bar (first line) <img style="width:170px" src="{{site.baseurl}}/assets/images/marlin-nokia-5110-interactive-status-screen-top.jpg"> is a set of "buttons" to access Menu, Print from SD, Home all, Preheat 1, Preheat 2, Cooldown, and Filament menu.
+<a href="{{site.baseurl}}/assets/images/marlin-nokia-5110-interactive-status-screen.jpg"><img class="border" style="float: right; width: 300px;" src="{{site.baseurl}}/assets/images/marlin-nokia-5110-interactive-status-screen.jpg"></a> This is an interactive status screen for <a href="https://marlinfw.org">Marlin 3D Printer Firmware</a> that I integrated into Marlin for a DIY 3D Printer. It enables you to access and tweak the most useful printer functions right from the status screen. The top bar (first line) <img style="width:170px" src="{{site.baseurl}}/assets/images/marlin-nokia-5110-interactive-status-screen-top.jpg"> is a set of "buttons" to access Menu, Print from SD, Home all, Preheat 1, Preheat 2, Cooldown, and Filament menu.
 
 The other items on the status screen are also interactive: Nozzle and Bed temperature, Feedrate/speed, Flow percentage, Printing fan velocity, Z, X, and Y move. It is prepared to show up to two nozzles on screen.
 
