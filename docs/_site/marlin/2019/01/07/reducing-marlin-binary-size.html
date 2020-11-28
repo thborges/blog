@@ -7,17 +7,24 @@
 <meta name="generator" content="Jekyll v3.8.6" />
 <meta property="og:title" content="Reducing Marlin firmware binary size to fit in your 3D printer board memory" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="How to reduce the Marlin binary size? Here are my special compilation flags that were able to reduce it by almost 6K." />
-<meta property="og:description" content="How to reduce the Marlin binary size? Here are my special compilation flags that were able to reduce it by almost 6K." />
-<link rel="canonical" href="http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size.html" />
-<meta property="og:url" content="http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size.html" />
+<meta name="description" content="How to reduce the Marlin binary size? Here are a set of special compilation flags and options you can disable to save up to 16.3 Kb of memory for common AVR boards. Some build flags are also provided for ARM boards at the end." />
+<meta property="og:description" content="How to reduce the Marlin binary size? Here are a set of special compilation flags and options you can disable to save up to 16.3 Kb of memory for common AVR boards. Some build flags are also provided for ARM boards at the end." />
+<link rel="canonical" href="https://thborges.github.io/blog/marlin/2019/01/07/reducing-marlin-binary-size.html" />
+<meta property="og:url" content="https://thborges.github.io/blog/marlin/2019/01/07/reducing-marlin-binary-size.html" />
 <meta property="og:site_name" content="3D, circuits and coding projects" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-01-07T18:44:14-02:00" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size.html","headline":"Reducing Marlin firmware binary size to fit in your 3D printer board memory","dateModified":"2019-01-07T18:44:14-02:00","datePublished":"2019-01-07T18:44:14-02:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size.html"},"description":"How to reduce the Marlin binary size? Here are my special compilation flags that were able to reduce it by almost 6K.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"url":"https://thborges.github.io/blog/marlin/2019/01/07/reducing-marlin-binary-size.html","headline":"Reducing Marlin firmware binary size to fit in your 3D printer board memory","dateModified":"2019-01-07T18:44:14-02:00","datePublished":"2019-01-07T18:44:14-02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://thborges.github.io/blog/marlin/2019/01/07/reducing-marlin-binary-size.html"},"description":"How to reduce the Marlin binary size? Here are a set of special compilation flags and options you can disable to save up to 16.3 Kb of memory for common AVR boards. Some build flags are also provided for ARM boards at the end.","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/blog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/blog/feed.xml" title="3D, circuits and coding projects" /></head>
+<link rel="stylesheet" href="/blog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://thborges.github.io/blog/feed.xml" title="3D, circuits and coding projects" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-GBXE14W1P6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GBXE14W1P6');
+</script>
+</head>
 <body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/blog/">3D, circuits and coding projects</a><nav class="site-nav">
@@ -45,11 +52,13 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>How to reduce the Marlin binary size? Here are my special compilation flags that were able to reduce it by almost 6K.</p>
+    <p>How to reduce the Marlin binary size? Here are a set of special compilation flags and options you can disable to save <strong>up to 16.3 Kb</strong> of memory for common AVR boards. Some build flags are also provided for ARM boards at the end.</p>
+
+<h1 id="special-compilation-flags">Special compilation flags</h1>
 
 <p>Changing them is easy wether you are using Arduino IDE or PlataformIO.</p>
 
-<p>If already using PlataformIO, it is easier. Just create a new build target in platformio.ini, copying the original config for your printer board and adding the new flags:</p>
+<p>If you are using PlataformIO, it is easier. Just create a new build target in platformio.ini, copying the original config for your printer board and add the new flags:</p>
 
 <figure class="highlight"><pre><code class="language-ini" data-lang="ini"><span class="py">build_unflags</span> <span class="p">=</span> <span class="s">-g -ggdb</span>
 <span class="py">build_flags</span>   <span class="p">=</span> <span class="s">${common.build_flags} -fno-tree-scev-cprop -fno-split-wide-types -Wl,--relax -mcall-prologues</span></code></pre></figure>
@@ -66,7 +75,11 @@
 
 <figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nt">-finline-limit</span><span class="o">=</span>3 <span class="nt">-ffast-math</span></code></pre></figure>
 
-<p>Some of my sizes using PlatformIO when compiling Marlin 1.1.9 for my customized version of an Anet A8 with filament runout sensor, bed probe, graphical display, wifi and others:</p>
+<p>From these options, <strong>inline-limit</strong> and <strong>mcall-prologues</strong> can slightly interfere in execution velocity due to additional function calls. <strong>Fast-math</strong>, in turn, changes the way math is made in several ways, and I’m not sure it affects Marlin. You can check a list of modifications in using the fast-math flag in this <a href="https://stackoverflow.com/questions/7420665/what-does-gccs-ffast-math-actually-do/22135559#22135559">Stack Overflow answer</a>.</p>
+
+<p>You can verify what each of these options does in avr-gcc man page or online at <a href="http://ccrma.stanford.edu/planetccrma/man/man1/avr-gcc.1.html">avr-gcc manpage</a>. Check also this list of <a href="https://p5r.uk/blog/2008/avr-gcc-optimisations.html">optimizations for AVR</a>.</p>
+
+<p>Some of my sizes using PlatformIO to build Marlin 1.1.9 for a customized version of an Anet A8 with filament runout sensor, bed probe, graphical display, wifi and others:</p>
 
 <table>
   <thead>
@@ -99,7 +112,113 @@
   </tbody>
 </table>
 
-<p>You can verify what each of these options do in avr-gcc man page or online at <a href="http://ccrma.stanford.edu/planetccrma/man/man1/avr-gcc.1.html">avr-gcc manpage</a>.</p>
+<h1 id="updated-sizes-for-marlin-20">Updated sizes for Marlin 2.0</h1>
+
+<p>For Marlin 2.0, the same flags provided above apply. The binary size for the default Creality Ender 3, for example, are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Size (bytes)</th>
+      <th style="text-align: left">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">126340 (97.1% of 130048)</td>
+      <td style="text-align: left">Default flags for sanguino1284p</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">125782</td>
+      <td style="text-align: left">-fno-tree-scev-cprop -fno-split-wide-types</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">124770</td>
+      <td style="text-align: left">-fno-tree-scev-cprop -fno-split-wide-types -Wl,–relax</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">120808</td>
+      <td style="text-align: left">-fno-tree-scev-cprop -fno-split-wide-types -Wl,–relax -mcall-prologues</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">119898 (92.2% of 130048)</td>
+      <td style="text-align: left">-fno-tree-scev-cprop -fno-split-wide-types -Wl,–relax -mcall-prologues -finline-limit=3 -ffast-math</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For Ender 3, the flags were able to save <strong>up to 6.4 Kb</strong> for you to enable exceptional options!</p>
+
+<h1 id="ready-to-disable-some-unused-options">Ready to disable some unused options?</h1>
+
+<p>Disabling some options in Configuration.h and Configuration_adv.h can help you increase the space available for more exceptional options:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option and Description</th>
+      <th>Size recovered (up to)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>SLIM_LCD_MENUS</strong>: Remove extraneous LCD menus, such as those in advanced configurations menu (velocity, acceleration, etc). You still will be able to configure them through M gcode equivalent commands.</td>
+      <td>4.7 Kb</td>
+    </tr>
+    <tr>
+      <td><strong>ARC_SUPORT</strong>: Support to Arc movements. As far as I know, this is mostly used in CNC or laser cutters. The slicers I know can’t output arc movements.</td>
+      <td>3.3 Kb</td>
+    </tr>
+    <tr>
+      <td><strong>LCD_INFO_MENU</strong>: A menu with printer information.</td>
+      <td>1.7 Kb</td>
+    </tr>
+    <tr>
+      <td><strong>SHOW_BOOTSCREEN, SHOW_CUSTOM_BOOTSCREEN, CUSTOM_STATUS_SCREEN_IMAGE</strong>: In my opinion, it loses some personality, but the three together can save up to:</td>
+      <td>1.4 Kb</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="build-flags-for-marlin-20-and-arm">Build flags for Marlin 2.0 and ARM?</h1>
+
+<p>Recently, I built Marlin for a custom ARM board based on an STM32 F103CB (Also known as Blue Pill). All the compiler flags from above can be used, except by -mcall-prologues. However, they are not so beneficial as for AVR.</p>
+
+<p>The killer option for ARM is to use the Nano C Runtime library, passing –specs=nano.specs to the linker. To do it, create a new file named add_nanolib.py in the root directory of marlin with the following content:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Import</span><span class="p">(</span><span class="s">"env"</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">LINKFLAGS</span><span class="o">=</span><span class="p">[</span><span class="s">"--specs=nano.specs"</span><span class="p">])</span></code></pre></figure>
+
+<p>and add the extra_scripts option in platformio.ini for your board:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">extra_scripts</span> <span class="o">=</span> <span class="n">add_nanolib</span><span class="o">.</span><span class="n">py</span></code></pre></figure>
+
+<p>The sizes below is for platform = ststm32, framework = arduino, and board = genericSTM32F103CB.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Size (bytes)</th>
+      <th style="text-align: left">build_flags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">127688 (97.4% of 131072)</td>
+      <td style="text-align: left">build_flags = !python Marlin/src/HAL/STM32F1/build_flags.py ${common.build_flags} -DSERIAL_USB</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">126816</td>
+      <td style="text-align: left">… -ffast-math</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><strong>108964</strong></td>
+      <td style="text-align: left">… add extra_scripts = add_nanolib.py</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Of course, you can also disable the options in Configuration.h and they should save up equivalent memory sizes. The SLIM_LCD_MENUS, for example, release even more memory on ARM, freeing 5.4 Kb!</p>
 
 <div style="border-bottom: 1px solid #e8e8e8;">Thanks for reading! Please leave a comment below.<p /></div>
 <div id="disqus_thread"></div>
@@ -141,7 +260,7 @@
 </div>
 
       <div class="footer-col footer-col-3">
-        <p>Documentation of some professional and hobby projects about 3D printers modifications, 3D designs, algorithms, circuits and more. Thank you for reading. Fell free to contact me.</p>
+        <p>Documentation of some professional and hobby projects about 3D printers customizations, 3D designs, algorithms, circuits and more. Thank you for reading. Fell free to contact me.</p>
       </div>
     </div>
 

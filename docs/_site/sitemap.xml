@@ -3,7 +3,37 @@
   
     
     <url>
-      <loc>/robots/2019/10/01/diy-gamepad-for-your-robots-print-in-place.html</loc>
+      <loc>https://thborges.github.io/blog/3d/2020/06/13/interactive-status-screen-marlin-firmware-pcd8544-nokia5110-lcd-controller.html</loc>
+      
+        <lastmod>2020-06-13T16:01:14-03:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://thborges.github.io/blog/3d/2020/05/18/epson-stepper-em-286-sth-39h112-06-reverse-engineered-specs.html</loc>
+      
+        <lastmod>2020-05-18T22:42:14-03:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://thborges.github.io/blog/robots/2019/10/01/3d-gamepad-wireless-controller-diy-print-in-place.html</loc>
       
         <lastmod>2019-10-01T17:44:14-03:00</lastmod>
       
@@ -18,7 +48,7 @@
   
     
     <url>
-      <loc>/marlin/2019/01/07/reducing-marlin-binary-size.html</loc>
+      <loc>https://thborges.github.io/blog/marlin/2019/01/07/reducing-marlin-binary-size.html</loc>
       
         <lastmod>2019-01-07T18:44:14-02:00</lastmod>
       
@@ -34,7 +64,7 @@
   
     
     <url>
-      <loc>/2019-12-23-speeding-up-3d-print-start.html</loc>
+      <loc>https://thborges.github.io/blog/2019-12-23-speeding-up-3d-print-start.html</loc>
       
         <lastmod>2019-01-07T18:44:14-02:00</lastmod>
       
@@ -49,24 +79,9 @@
   
     
     <url>
-      <loc>/404.html</loc>
+      <loc>https://thborges.github.io/blog/404.html</loc>
       
-        <lastmod>2020-03-25T18:43:22-03:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>/about/</loc>
-      
-        <lastmod>2020-03-25T18:43:22-03:00</lastmod>
+        <lastmod>2020-11-28T15:28:21-03:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -79,41 +94,9 @@
   
     
     <url>
-      <loc>/</loc>
+      <loc>https://thborges.github.io/blog/about/</loc>
       
-        <lastmod>2020-03-25T18:43:22-03:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>/assets/main.css</loc>
-      
-        <lastmod>2020-03-25T18:43:22-03:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-  
-    
-    <url>
-      <loc>/feed.xml</loc>
-      
-        <lastmod>2020-03-25T18:43:22-03:00</lastmod>
+        <lastmod>2020-11-28T15:28:21-03:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -126,9 +109,56 @@
   
     
     <url>
-      <loc>/robots.txt</loc>
+      <loc>https://thborges.github.io/blog/</loc>
       
-        <lastmod>2020-03-25T18:43:22-03:00</lastmod>
+        <lastmod>2020-11-28T15:28:21-03:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://thborges.github.io/blog/assets/main.css</loc>
+      
+        <lastmod>2020-11-28T15:28:21-03:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+  
+    
+    <url>
+      <loc>https://thborges.github.io/blog/feed.xml</loc>
+      
+        <lastmod>2020-11-28T15:28:21-03:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://thborges.github.io/blog/robots.txt</loc>
+      
+        <lastmod>2020-11-28T15:28:21-03:00</lastmod>
       
       
         <changefreq>monthly</changefreq>

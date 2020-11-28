@@ -532,6 +532,9 @@ table {
   margin-right: 1px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2); }
 
+td {
+  word-wrap: break-word; }
+
 figure {
   display: table; }
 
@@ -547,3 +550,12 @@ figcaption {
 
 h1 {
   clear: both; }
+
+pre {
+  white-space: pre-wrap; }
+
+.post-list img {
+  max-width: 150px; }
+
+.post-list li {
+  display: inline-block; }

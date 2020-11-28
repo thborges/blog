@@ -1,12 +1,190 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-03-25T18:43:22-03:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">3D, circuits and coding projects</title><subtitle>Documentation of some professional and hobby projects about 3D printers modifications, 3D designs, algorithms, circuits and more. Thank you for reading. Fell free to contact me.</subtitle><entry><title type="html">A DIY Wireless Gamepad for Your Robots: 3D Model, Circuit, and Firmware</title><link href="http://localhost:4000/blog/robots/2019/10/01/diy-gamepad-for-your-robots-print-in-place.html" rel="alternate" type="text/html" title="A DIY Wireless Gamepad for Your Robots: 3D Model, Circuit, and Firmware" /><published>2019-10-01T17:44:14-03:00</published><updated>2019-10-01T17:44:14-03:00</updated><id>http://localhost:4000/blog/robots/2019/10/01/diy-gamepad-for-your-robots-print-in-place</id><content type="html" xml:base="http://localhost:4000/blog/robots/2019/10/01/diy-gamepad-for-your-robots-print-in-place.html">&lt;p&gt;&lt;a href=&quot;/blog/assets/images/diyctrl_main.jpeg&quot;&gt;&lt;img class=&quot;border&quot; style=&quot;float: right; width: 300px;&quot; src=&quot;/blog/assets/images/diyctrl_main.jpeg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://thborges.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://thborges.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-11-28T15:28:21-03:00</updated><id>https://thborges.github.io/blog/feed.xml</id><title type="html">3D, circuits and coding projects</title><subtitle>Documentation of some professional and hobby projects about 3D printers customizations, 3D designs, algorithms, circuits and more. Thank you for reading. Fell free to contact me.</subtitle><entry><title type="html">Interactive Status Screen for Marlin Firmware: an experiment using PCD8544 Nokia 5110 LCD Controller</title><link href="https://thborges.github.io/blog/3d/2020/06/13/interactive-status-screen-marlin-firmware-pcd8544-nokia5110-lcd-controller.html" rel="alternate" type="text/html" title="Interactive Status Screen for Marlin Firmware: an experiment using PCD8544 Nokia 5110 LCD Controller" /><published>2020-06-13T16:01:14-03:00</published><updated>2020-06-13T16:01:14-03:00</updated><id>https://thborges.github.io/blog/3d/2020/06/13/interactive-status-screen-marlin-firmware-pcd8544-nokia5110-lcd-controller</id><content type="html" xml:base="https://thborges.github.io/blog/3d/2020/06/13/interactive-status-screen-marlin-firmware-pcd8544-nokia5110-lcd-controller.html">&lt;p&gt;&lt;a href=&quot;/blog/assets/images/marlin-nokia-5110-interactive-status-screen.jpg&quot;&gt;&lt;img class=&quot;border&quot; style=&quot;float: right; width: 300px;&quot; src=&quot;/blog/assets/images/marlin-nokia-5110-interactive-status-screen.jpg&quot; /&gt;&lt;/a&gt; This is an interactive status screen for &lt;a href=&quot;https://marlinfw.org&quot;&gt;Marlin 3D Printer Firmware&lt;/a&gt; that I integrated into Marlin for a DIY 3D Printer. It enables you to access and tweak the most useful printer functions right from the status screen. The top bar (first line) &lt;img style=&quot;width:170px&quot; src=&quot;/blog/assets/images/marlin-nokia-5110-interactive-status-screen-top.jpg&quot; /&gt; is a set of “buttons” to access Menu, Print from SD, Home all, Preheat 1, Preheat 2, Cooldown, and Filament menu.&lt;/p&gt;
 
-&lt;p&gt;This page describes a DIY 3D printed wireless gamepad designed for controlling an arm robot. It was developed under a technological research project¹ in Brazil at the Federal University of Jataí - GO². The project aims to build very low-cost robots to use in educational activities in Brazilian public schools.&lt;/p&gt;
+&lt;p&gt;The other items on the status screen are also interactive: Nozzle and Bed temperature, Feedrate/speed, Flow percentage, Printing fan velocity, Z, X, and Y move. It is prepared to show up to two nozzles on screen.&lt;/p&gt;
+
+&lt;p&gt;When printing, the items on screen rearrange to display the printing duration, the progress, a button for pause and another one for stop. The following video shows it in operation.&lt;/p&gt;
+
+&lt;figure class=&quot;border&quot; style=&quot;float: right&quot;&gt;
+&lt;iframe width=&quot;400&quot; height=&quot;225&quot; src=&quot;https://www.youtube.com/embed/8V7FHNmuf0I?autohide=1&amp;amp;showinfo=0&amp;amp;controls=0&amp;amp;modestbranding=1&amp;amp;version=3&amp;amp;showsearch=0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;figcaption&gt;The interactive screen in operation!&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;It is small, you can say! I definitely agree. Compared to common graphical LCD used by default on Marlin, such as the 128x64 ones, the 84x48 pixels make it difficult to figure out how to put all this info on screen and also make these nano 8x8 icons. But you know, make it with what you have! These are the ones lying around me. I hope to buy or win a larger one and implement these features for it.&lt;/p&gt;
+
+&lt;p&gt;Although it is an experimental thing and there are some corners to shape, you can run it on your printer! The general instructions are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Wire the LCD controller&lt;/strong&gt;: You need four IO pins for CE (chip enable), DC (data command), DAT or DIN (Data Input), and CLK (Clock). On AVR boards, it is recommended to use 1K ohm resistors on these lines. I also have some success wiring it to Hardware SPI on AVR boards, i.e., using the SPI bus (CLK and MOSI pins) and another two IO pins for CE and DC. However, I recommend you to do not use HARDWARE_SPI, as it almost always conflicts with other SPI related stuff on Marlin, for example, SD Cards. I had to reduce the SPI clock to SPI_QUARTER_SPEED for it to work on the SPI bus.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Define the pins used in the pins_YOURBOARD.h file&lt;/strong&gt;: Add the four defines below in the pins_YOURBOARD.h, where YOURBOARD is your printer board name. Check &lt;a href=&quot;https://github.com/thborges/Marlin/blob/stm32bluepill/Marlin/src/pins/sanguino/pins_ANET_10.h&quot;&gt;pins_ANET_10.h&lt;/a&gt; or &lt;a href=&quot;https://github.com/thborges/Marlin/blob/stm32bluepill/Marlin/src/pins/stm32f1/pins_BLUE_PILL.h&quot;&gt;pins_BLUE_PILL.h&lt;/a&gt; for a reference.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#define SLCD_CLK_PIN  PIN?
+#define SLCD_DAT_PIN  PIN?
+#define SLCD_DC_PIN   PIN?
+#define SLCD_CS_PIN   PIN?&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Change Configuration.h&lt;/strong&gt; and include a line &lt;code&gt;#define NOKIA5110_LCD&lt;/code&gt; near the LCD / Controller Selection section (around line 1800). You should comment the other display controller enabled.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Build and upload it to your printer! ;D&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The complete source code is available &lt;a href=&quot;https://github.com/thborges/Marlin/tree/stm32bluepill&quot;&gt;here&lt;/a&gt;. The changes are mainly confined in the &lt;a href=&quot;https://github.com/thborges/Marlin/tree/stm32bluepill/Marlin/src/lcd/small_lcd&quot;&gt;small_lcd&lt;/a&gt; folder, except by &lt;a href=&quot;https://github.com/thborges/Marlin/commit/3a4ae390368d0f07c2b4621fe166704faf2ca5b4#diff-54ada0858fc4ed0c0dfc06aa12378c1d&quot;&gt;small changes in ultralcd.cpp&lt;/a&gt; and the inclusion of some lines in Conditionals_LCD.h. It is for Marlin 2.0 and supports both ARM and AVR boards.&lt;/p&gt;
+
+&lt;div style=&quot;border-bottom: 1px solid #e8e8e8;&quot;&gt;Thanks for reading! Please leave a comment below.&lt;p /&gt;&lt;/div&gt;
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+  var disqus_config = function () {
+    this.page.url = document.location.href;
+    this.page.identifier = document.location.pathname;
+  };
+
+  (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thborges.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+&lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><author><name></name></author><summary type="html">This is an interactive status screen for Marlin 3D Printer Firmware that I integrated into Marlin for a DIY 3D Printer. It enables you to access and tweak the most useful printer functions right from the status screen. The top bar (first line) is a set of “buttons” to access Menu, Print from SD, Home all, Preheat 1, Preheat 2, Cooldown, and Filament menu.</summary></entry><entry><title type="html">Reverse Engineered Specification for Shimano Stepper Motor EM-286 STH-039H112-06</title><link href="https://thborges.github.io/blog/3d/2020/05/18/epson-stepper-em-286-sth-39h112-06-reverse-engineered-specs.html" rel="alternate" type="text/html" title="Reverse Engineered Specification for Shimano Stepper Motor EM-286 STH-039H112-06" /><published>2020-05-18T22:42:14-03:00</published><updated>2020-05-18T22:42:14-03:00</updated><id>https://thborges.github.io/blog/3d/2020/05/18/epson-stepper-em-286-sth-39h112-06-reverse-engineered-specs</id><content type="html" xml:base="https://thborges.github.io/blog/3d/2020/05/18/epson-stepper-em-286-sth-39h112-06-reverse-engineered-specs.html">&lt;p&gt;&lt;a href=&quot;/blog/assets/images/em-286-sth-039h112-06.jpeg&quot;&gt;&lt;img class=&quot;border&quot; style=&quot;float: right; width: 300px;&quot; src=&quot;/blog/assets/images/em-286-sth-039h112-06.jpeg&quot; /&gt;&lt;/a&gt; The EM-286 Shimano STH-39H112-06 is a stepper motor recovered from old FX880, FX890, FX2180, and other EPSON matrix printers. To use it in a personal 3D printer project, I reverse engineered some of its electrical and mechanical characteristics. It appears that there is no datasheet of it on the internet. I’m documenting the specs here for future reference. Feel free to use and propose any corrections for the parameters below.&lt;/p&gt;
+
+&lt;h1 id=&quot;mechanical-characteristics&quot;&gt;Mechanical characteristics&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Characteristic&lt;/th&gt;
+      &lt;th&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Form factor&lt;/td&gt;
+      &lt;td&gt;NEMA17&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Dimensions&lt;/td&gt;
+      &lt;td&gt;38.8 x 38.8 x 32.5mm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Weight&lt;/td&gt;
+      &lt;td&gt;157g&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Space between screw holes&lt;/td&gt;
+      &lt;td&gt;~31mm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Shaft diameter&lt;/td&gt;
+      &lt;td&gt;4mm (note that standard 3d printer pulleys are 5mm in diameter)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Shaft length&lt;/td&gt;
+      &lt;td&gt;14.5mm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Step angle&lt;/td&gt;
+      &lt;td&gt;3.75˚ (an uncommon value, but I confirmed that)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Steps per revolution&lt;/td&gt;
+      &lt;td&gt;96&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The step angle is a bit unusual compared to standard stepper sold in 3D printers nowadays (they have 1.8˚ per step). Use the following formulas to compute steps per mm values to configure the firmware:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Direct attached to leadscrew and using 1/16 micro-stepping&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;steps_per_mm = 96 * 16 / thread_pitch.&lt;/p&gt;
+
+&lt;p&gt;Example for a standard T8 leadscrew with 2mm thread pitch: 96 * 16 / 2 = &lt;em&gt;768 steps per mm&lt;/em&gt;. Max resolution in mm = 1/768 = 0.0013 mm or ~1.3 micron.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Belt driven using 1/16 micro-stepping&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;steps_per_mm = 96 * 16 / (teeth * tooth_pitch)&lt;/p&gt;
+
+&lt;p&gt;Example for a 20 teeth pulley and GT2 2mm belt: 96 * 16 / (20 * 2) = &lt;em&gt;38.4 steps per mm&lt;/em&gt;. Max resolution in mm = 1/38.4 = 0.026 or ~16 micron.&lt;/p&gt;
+
+&lt;p&gt;**Direct extruder using 1/16 micro-stepping and **:&lt;/p&gt;
+
+&lt;p&gt;steps_per_mm = 96 * 16 / (gear_diameter * π)&lt;/p&gt;
+
+&lt;p&gt;Example for a 11mm diameter filament gear: 96 * 16 / (11 * 3.1415926) = &lt;em&gt;44.448 steps per mm&lt;/em&gt;. Max resolution in mm = 1/44.448 = 0.022 or ~22 micron.&lt;/p&gt;
+
+&lt;p&gt;If using gear or pulley reduction, multiply the result by the gear ratio.&lt;/p&gt;
+
+&lt;h1 id=&quot;electrical-characteristics&quot;&gt;Electrical characteristics&lt;/h1&gt;
+
+&lt;p&gt;Here are the values I used to drive the motor. I consider them “safe” as it can operate barely warm (almost the same ambient temperature). Please don’t consider them as maximum or minimum ratings that you find in an official datasheet.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Characteristic&lt;/th&gt;
+      &lt;th&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Type&lt;/td&gt;
+      &lt;td&gt;Bipolar&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Resistance per coil ⁽¹⁾&lt;/td&gt;
+      &lt;td&gt;15.1 Ω&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Voltage used&lt;/td&gt;
+      &lt;td&gt;12V ⁽²⁾&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Theoretical current at 12V per coil (Please see ⁽³⁾ and current limiting below)&lt;/td&gt;
+      &lt;td&gt;0.8A ⁽³⁾&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Driver&lt;/td&gt;
+      &lt;td&gt;A4988&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;A4988 current limiting voltage&lt;/td&gt;
+      &lt;td&gt;0.27V&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;I limited the current feed to the motor using the potentiometer in the A4988 board. To reduce noise, I used the minimum current capable of moving the 3d printer axis without skipping steps. The voltage measured between GND and the top of the potentiometer was 0.27V. According to Pololu formula and considering Rs = 0.2Ω (cloned version), the driver will feed 0.168A to the motor. The amperage read in series with the VMOT pin was 0.17A and was very close to the formula value. Genuine A4988 has Rs equals to 0.068 or 0.05Ω.&lt;/p&gt;
+
+&lt;p&gt;⁽¹⁾ In the default cable, coils are pins 1 and 3, and 2 and 4. Thus, to drive it using A4988, you have to connect pins 2 and 3 interchanged.&lt;/p&gt;
+
+&lt;p&gt;⁽²⁾ The service manuals for FX880 and FX890 indicate a supply voltage of 35V. However, it is also mentioned that the current was limited, depending on the print speed.&lt;/p&gt;
+
+&lt;p&gt;⁽³⁾ I believe that 0.8A is too much to move a 3D printer axis. It probably makes more sense to improve axis components. In my tests, this motor becomes warm starting at 0.4A so better to stay on the safe side.&lt;/p&gt;
+
+&lt;div style=&quot;border-bottom: 1px solid #e8e8e8;&quot;&gt;Thanks for reading! Please leave a comment below.&lt;p /&gt;&lt;/div&gt;
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+  var disqus_config = function () {
+    this.page.url = document.location.href;
+    this.page.identifier = document.location.pathname;
+  };
+
+  (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thborges.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+&lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><author><name></name></author><summary type="html">The EM-286 Shimano STH-39H112-06 is a stepper motor recovered from old FX880, FX890, FX2180, and other EPSON matrix printers. To use it in a personal 3D printer project, I reverse engineered some of its electrical and mechanical characteristics. It appears that there is no datasheet of it on the internet. I’m documenting the specs here for future reference. Feel free to use and propose any corrections for the parameters below.</summary></entry><entry><title type="html">A Wireless 3D Gamepad DIY for Your Robots: Model, Circuit, and Firmware</title><link href="https://thborges.github.io/blog/robots/2019/10/01/3d-gamepad-wireless-controller-diy-print-in-place.html" rel="alternate" type="text/html" title="A Wireless 3D Gamepad DIY for Your Robots: Model, Circuit, and Firmware" /><published>2019-10-01T17:44:14-03:00</published><updated>2019-10-01T17:44:14-03:00</updated><id>https://thborges.github.io/blog/robots/2019/10/01/3d-gamepad-wireless-controller-diy-print-in-place</id><content type="html" xml:base="https://thborges.github.io/blog/robots/2019/10/01/3d-gamepad-wireless-controller-diy-print-in-place.html">&lt;p&gt;&lt;a href=&quot;/blog/assets/images/diyctrl_main.jpeg&quot;&gt;&lt;img class=&quot;border&quot; style=&quot;float: right; width: 300px;&quot; src=&quot;/blog/assets/images/diyctrl_main.jpeg&quot; /&gt;&lt;/a&gt; This is a DIY Wireless 3D Gamepad designed for controlling an arm robot. It was developed under a technological research project¹ in Brazil at the Federal University of Jataí - GO². The project aims to build very low-cost robots to use in educational activities in Brazilian public schools.&lt;/p&gt;
 
 &lt;p&gt;Although there are many readily available gamepad or similar wireless controllers, and their quality is a must, the cost of bringing several of them to enable a class activity didn’t fit our budget. By the way, we also want to empower the students and encourage them to pursue STEM careers, and nothing better than presenting something they can create themselves in a maker lab!&lt;/p&gt;
 
 &lt;h1 id=&quot;summary-of-characteristics&quot;&gt;Summary of Characteristics&lt;/h1&gt;
 
-&lt;p&gt;The gamepad has two thumbsticks, each one pressing four buttons disposed in the left, right, top, and bottom directions. There are two additional buttons in the center and a feedback light that flashes in every move. Its mainboard uses a small PIC processor powered by two CR2032 3V button cells that sends the pressed buttons through a standard 433 Mhz RF module.&lt;/p&gt;
+&lt;p&gt;The 3D Gamepad has two thumbsticks, each one pressing four buttons disposed in the left, right, top, and bottom directions. There are two additional buttons in the center and a feedback light that flashes in every move. Its mainboard uses a small PIC processor powered by two CR2032 3V button cells that sends the pressed buttons through a standard 433 Mhz RF module.&lt;/p&gt;
 
 &lt;p&gt;Main characteristics:&lt;/p&gt;
 
@@ -116,7 +294,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Of course, depending on your preferred way of making a board, you should add materials to etch and solder the components on it. An option is to order it pre-fabricated from companies like &lt;a href=&quot;https://jlcpcb.com&quot;&gt;JLC PCB&lt;/a&gt; or &lt;a href=&quot;https://www.pcbway.com&quot;&gt;PCB Way&lt;/a&gt;. Just use the provided Gerber files bellow when ordering.&lt;/p&gt;
+&lt;p&gt;Of course, depending on your preferred way of making a board, you should add materials to etch and solder the components on it. An option is to order it pre-fabricated from companies like &lt;a href=&quot;https://jlcpcb.com&quot;&gt;JLC PCB&lt;/a&gt; or &lt;a href=&quot;https://www.pcbway.com&quot;&gt;PCB Way&lt;/a&gt;. Just use the provided Gerber files below when ordering.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/assets/boards/diyctrl_eagle_board_files.zip&quot;&gt;Eagle PCB files and Gerber files&lt;/a&gt;&lt;/li&gt;
@@ -201,11 +379,13 @@
   })();
 &lt;/script&gt;
 
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Reducing Marlin firmware binary size to fit in your 3D printer board memory</title><link href="http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size.html" rel="alternate" type="text/html" title="Reducing Marlin firmware binary size to fit in your 3D printer board memory" /><published>2019-01-07T18:44:14-02:00</published><updated>2019-01-07T18:44:14-02:00</updated><id>http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size</id><content type="html" xml:base="http://localhost:4000/blog/marlin/2019/01/07/reducing-marlin-binary-size.html">&lt;p&gt;How to reduce the Marlin binary size? Here are my special compilation flags that were able to reduce it by almost 6K.&lt;/p&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><author><name></name></author><summary type="html">This is a DIY Wireless 3D Gamepad designed for controlling an arm robot. It was developed under a technological research project¹ in Brazil at the Federal University of Jataí - GO². The project aims to build very low-cost robots to use in educational activities in Brazilian public schools.</summary></entry><entry><title type="html">Reducing Marlin firmware binary size to fit in your 3D printer board memory</title><link href="https://thborges.github.io/blog/marlin/2019/01/07/reducing-marlin-binary-size.html" rel="alternate" type="text/html" title="Reducing Marlin firmware binary size to fit in your 3D printer board memory" /><published>2019-01-07T18:44:14-02:00</published><updated>2019-01-07T18:44:14-02:00</updated><id>https://thborges.github.io/blog/marlin/2019/01/07/reducing-marlin-binary-size</id><content type="html" xml:base="https://thborges.github.io/blog/marlin/2019/01/07/reducing-marlin-binary-size.html">&lt;p&gt;How to reduce the Marlin binary size? Here are a set of special compilation flags and options you can disable to save &lt;strong&gt;up to 16.3 Kb&lt;/strong&gt; of memory for common AVR boards. Some build flags are also provided for ARM boards at the end.&lt;/p&gt;
+
+&lt;h1 id=&quot;special-compilation-flags&quot;&gt;Special compilation flags&lt;/h1&gt;
 
 &lt;p&gt;Changing them is easy wether you are using Arduino IDE or PlataformIO.&lt;/p&gt;
 
-&lt;p&gt;If already using PlataformIO, it is easier. Just create a new build target in platformio.ini, copying the original config for your printer board and adding the new flags:&lt;/p&gt;
+&lt;p&gt;If you are using PlataformIO, it is easier. Just create a new build target in platformio.ini, copying the original config for your printer board and add the new flags:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ini&quot; data-lang=&quot;ini&quot;&gt;&lt;span class=&quot;py&quot;&gt;build_unflags&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;-g -ggdb&lt;/span&gt;
 &lt;span class=&quot;py&quot;&gt;build_flags&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;${common.build_flags} -fno-tree-scev-cprop -fno-split-wide-types -Wl,--relax -mcall-prologues&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -222,7 +402,11 @@
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nt&quot;&gt;-finline-limit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3 &lt;span class=&quot;nt&quot;&gt;-ffast-math&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Some of my sizes using PlatformIO when compiling Marlin 1.1.9 for my customized version of an Anet A8 with filament runout sensor, bed probe, graphical display, wifi and others:&lt;/p&gt;
+&lt;p&gt;From these options, &lt;strong&gt;inline-limit&lt;/strong&gt; and &lt;strong&gt;mcall-prologues&lt;/strong&gt; can slightly interfere in execution velocity due to additional function calls. &lt;strong&gt;Fast-math&lt;/strong&gt;, in turn, changes the way math is made in several ways, and I’m not sure it affects Marlin. You can check a list of modifications in using the fast-math flag in this &lt;a href=&quot;https://stackoverflow.com/questions/7420665/what-does-gccs-ffast-math-actually-do/22135559#22135559&quot;&gt;Stack Overflow answer&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can verify what each of these options does in avr-gcc man page or online at &lt;a href=&quot;http://ccrma.stanford.edu/planetccrma/man/man1/avr-gcc.1.html&quot;&gt;avr-gcc manpage&lt;/a&gt;. Check also this list of &lt;a href=&quot;https://p5r.uk/blog/2008/avr-gcc-optimisations.html&quot;&gt;optimizations for AVR&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Some of my sizes using PlatformIO to build Marlin 1.1.9 for a customized version of an Anet A8 with filament runout sensor, bed probe, graphical display, wifi and others:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -255,7 +439,113 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;You can verify what each of these options do in avr-gcc man page or online at &lt;a href=&quot;http://ccrma.stanford.edu/planetccrma/man/man1/avr-gcc.1.html&quot;&gt;avr-gcc manpage&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&quot;updated-sizes-for-marlin-20&quot;&gt;Updated sizes for Marlin 2.0&lt;/h1&gt;
+
+&lt;p&gt;For Marlin 2.0, the same flags provided above apply. The binary size for the default Creality Ender 3, for example, are:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Size (bytes)&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Options&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;126340 (97.1% of 130048)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Default flags for sanguino1284p&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;125782&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-fno-tree-scev-cprop -fno-split-wide-types&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;124770&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-fno-tree-scev-cprop -fno-split-wide-types -Wl,–relax&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;120808&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-fno-tree-scev-cprop -fno-split-wide-types -Wl,–relax -mcall-prologues&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;119898 (92.2% of 130048)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-fno-tree-scev-cprop -fno-split-wide-types -Wl,–relax -mcall-prologues -finline-limit=3 -ffast-math&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;For Ender 3, the flags were able to save &lt;strong&gt;up to 6.4 Kb&lt;/strong&gt; for you to enable exceptional options!&lt;/p&gt;
+
+&lt;h1 id=&quot;ready-to-disable-some-unused-options&quot;&gt;Ready to disable some unused options?&lt;/h1&gt;
+
+&lt;p&gt;Disabling some options in Configuration.h and Configuration_adv.h can help you increase the space available for more exceptional options:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Option and Description&lt;/th&gt;
+      &lt;th&gt;Size recovered (up to)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;SLIM_LCD_MENUS&lt;/strong&gt;: Remove extraneous LCD menus, such as those in advanced configurations menu (velocity, acceleration, etc). You still will be able to configure them through M gcode equivalent commands.&lt;/td&gt;
+      &lt;td&gt;4.7 Kb&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ARC_SUPORT&lt;/strong&gt;: Support to Arc movements. As far as I know, this is mostly used in CNC or laser cutters. The slicers I know can’t output arc movements.&lt;/td&gt;
+      &lt;td&gt;3.3 Kb&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;LCD_INFO_MENU&lt;/strong&gt;: A menu with printer information.&lt;/td&gt;
+      &lt;td&gt;1.7 Kb&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;SHOW_BOOTSCREEN, SHOW_CUSTOM_BOOTSCREEN, CUSTOM_STATUS_SCREEN_IMAGE&lt;/strong&gt;: In my opinion, it loses some personality, but the three together can save up to:&lt;/td&gt;
+      &lt;td&gt;1.4 Kb&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;build-flags-for-marlin-20-and-arm&quot;&gt;Build flags for Marlin 2.0 and ARM?&lt;/h1&gt;
+
+&lt;p&gt;Recently, I built Marlin for a custom ARM board based on an STM32 F103CB (Also known as Blue Pill). All the compiler flags from above can be used, except by -mcall-prologues. However, they are not so beneficial as for AVR.&lt;/p&gt;
+
+&lt;p&gt;The killer option for ARM is to use the Nano C Runtime library, passing –specs=nano.specs to the linker. To do it, create a new file named add_nanolib.py in the root directory of marlin with the following content:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;Import&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;env&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LINKFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;--specs=nano.specs&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;and add the extra_scripts option in platformio.ini for your board:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;extra_scripts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;add_nanolib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;py&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The sizes below is for platform = ststm32, framework = arduino, and board = genericSTM32F103CB.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Size (bytes)&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;build_flags&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;127688 (97.4% of 131072)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;build_flags = !python Marlin/src/HAL/STM32F1/build_flags.py ${common.build_flags} -DSERIAL_USB&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;126816&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;… -ffast-math&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;strong&gt;108964&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;… add extra_scripts = add_nanolib.py&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Of course, you can also disable the options in Configuration.h and they should save up equivalent memory sizes. The SLIM_LCD_MENUS, for example, release even more memory on ARM, freeing 5.4 Kb!&lt;/p&gt;
 
 &lt;div style=&quot;border-bottom: 1px solid #e8e8e8;&quot;&gt;Thanks for reading! Please leave a comment below.&lt;p /&gt;&lt;/div&gt;
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
@@ -273,4 +563,4 @@
   })();
 &lt;/script&gt;
 
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><author><name></name></author><summary type="html">How to reduce the Marlin binary size? Here are my special compilation flags that were able to reduce it by almost 6K.</summary></entry></feed>
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><author><name></name></author><summary type="html">How to reduce the Marlin binary size? Here are a set of special compilation flags and options you can disable to save up to 16.3 Kb of memory for common AVR boards. Some build flags are also provided for ARM boards at the end.</summary></entry></feed>
