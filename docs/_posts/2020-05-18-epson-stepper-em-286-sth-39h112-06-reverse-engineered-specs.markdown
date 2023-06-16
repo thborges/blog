@@ -34,7 +34,7 @@ steps_per_mm = 96 * 16 / (teeth * tooth_pitch)
 
 Example for a 20 teeth pulley and GT2 2mm belt: 96 * 16 / (20 * 2) = *38.4 steps per mm*. Max resolution in mm = 1/38.4 = 0.026 or ~26 micron.
 
-**Direct extruder using 1/16 micro-stepping and **:
+**Direct extruder using 1/16 micro-stepping**:
 
 steps_per_mm = 96 * 16 / (gear_diameter * π)
 
