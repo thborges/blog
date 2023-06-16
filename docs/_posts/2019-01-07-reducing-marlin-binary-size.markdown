@@ -61,11 +61,11 @@ For Marlin 2.0, the same flags provided above apply. The binary size for the def
 | 120808 | -fno-tree-scev-cprop -fno-split-wide-types -Wl,--relax -mcall-prologues |
 | 119898 (92.2% of 130048) | -fno-tree-scev-cprop -fno-split-wide-types -Wl,--relax -mcall-prologues -finline-limit=3 -ffast-math |
 
-For Ender 3, the flags were able to save **up to 6.4 Kb** for you to enable exceptional options!
+For Ender 3, only these compiler flags were able to save **up to 6.4 Kb**!
 
 # Ready to disable some unused options?
 
-Disabling some options in Configuration.h and Configuration_adv.h can help you increase the space available for more exceptional options:
+Disabling some options in Configuration.h and Configuration_adv.h also can help you increase the space available for enabling other options:
 
 | Option and Description | Size recovered (up to) |
 |-|-|
@@ -73,6 +73,8 @@ Disabling some options in Configuration.h and Configuration_adv.h can help you i
 | **ARC_SUPORT**: Support to Arc movements. As far as I know, this is mostly used in CNC or laser cutters. The slicers I know can't output arc movements. | 3.3 Kb |
 | **LCD_INFO_MENU**: A menu with printer information. | 1.7 Kb |
 | **SHOW_BOOTSCREEN, SHOW_CUSTOM_BOOTSCREEN, CUSTOM_STATUS_SCREEN_IMAGE**: In my opinion, it loses some personality, but the three together can save up to: | 1.4 Kb |
+| **PRINTCOUNTER**: A menu to show how many job the printer has or hasnot completed successfully: | 0.6 Kb |
+| **EEPROM_CHITCHAT**: Provide feedback on EEPROM commands | ~0.5 Kb |
 
 # Build flags for Marlin 2.0 and ARM?
 
